@@ -4,6 +4,7 @@ function Uploadimage (){
     return (
         <div>
             <input type="file" />
+            
         </div>
     )
 }
