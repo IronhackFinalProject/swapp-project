@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar/Navbar";
 import { getLoggedIn, logout } from "./services/auth";
 import routes from "./config/routes";
 import * as USER_HELPERS from "./utils/userToken";
+import Uploadimage from "./components/Uploadimage/Uploadimage";
 
 export default function App() {
   const [user, setUser] = useState(null);
@@ -57,6 +58,7 @@ export default function App() {
           <Route key={route.path} path={route.path} element={route.element} />
         ))}
       </Routes>
+      <Uploadimage />
     </div>
   );
 }
