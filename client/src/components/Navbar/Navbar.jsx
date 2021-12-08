@@ -17,8 +17,16 @@ const Navbar = (props) => {
       {console.log(props.user)}
         {props.user ? (
           <>
-            <Link to={PATHS.PROTECTEDPAGE} className="authLink">
+            <Link to={PATHS.MYPRODUCTS} className="authLink">
               My Products
+            </Link>
+
+            <Link to={PATHS.CREATEPRODUCT} className="authLink">
+              Create Product
+            </Link>
+
+            <Link to={PATHS.PROFILEPAGE} className="authLink">
+              My Profile
             </Link>
 
             <button className="nav-logoutbtn" onClick={props.handleLogout}>
@@ -33,9 +41,9 @@ const Navbar = (props) => {
             <Link to={PATHS.LOGINPAGE} className="authLink">
               Log In
             </Link>
-            <Link to={PATHS.CREATEPRODUCT} className="authLink">
+            {/* <Link to={PATHS.CREATEPRODUCT} className="authLink">
               Create Product
-            </Link>
+            </Link> */}
           </>
         )}
       </div>
