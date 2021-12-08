@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import "./Navbar.css";
 import * as PATHS from "../../utils/paths";
 import * as CONSTS from "../../utils/consts";
+// import Form from './components/Form/Form.jsx';
+
 
 const Navbar = (props) => {
   return (
@@ -28,6 +30,9 @@ const Navbar = (props) => {
             </Link>
             <Link to={PATHS.LOGINPAGE} className="authLink">
               Log In
+            </Link>
+            <Link to={PATHS.CREATEPRODUCT} className="authLink">
+              Create Product
             </Link>
           </>
         )}

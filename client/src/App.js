@@ -5,7 +5,13 @@ import Navbar from "./components/Navbar/Navbar";
 import { getLoggedIn, logout } from "./services/auth";
 import routes from "./config/routes";
 import * as USER_HELPERS from "./utils/userToken";
+
+//Components
+// import Product from './components/Product/Product.jsx';
+import Form from './components/Form/Form.jsx';
 import Uploadimage from "./components/Uploadimage/Uploadimage";
+
+
 
 export default function App() {
   const [user, setUser] = useState(null);
@@ -57,8 +63,9 @@ export default function App() {
         {routes({ user, authenticate, handleLogout }).map((route) => (
           <Route key={route.path} path={route.path} element={route.element} />
         ))}
+        <Route path="/CreateProduct" element={<Form/>} />
       </Routes>
-      <Uploadimage />
+      
     </div>
   );
 }
