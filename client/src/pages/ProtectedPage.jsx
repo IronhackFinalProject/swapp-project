@@ -1,9 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const ProtectedPage = () => {
+
+const ProtectedPage = (props) => {
   return (
     <div>
-      <h1>This page is hyper protected!</h1>
+      
+      <h2>These are your products...</h2>
     </div>
   );
 };

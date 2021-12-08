@@ -63,7 +63,7 @@ export default function App() {
         {routes({ user, authenticate, handleLogout }).map((route) => (
           <Route key={route.path} path={route.path} element={route.element} />
         ))}
-        <Route path="/CreateProduct" element={<Form/>} />
+        <Route path="/createproduct" element={<Form/>} />
       </Routes>
       
     </div>
