@@ -1,6 +1,8 @@
 import "../Form/Form.css";
 import React from 'react';
 import {useState} from 'react'
+import { createProduct } from "../../services/products";
+ 
 
 const Form = (props)=>{
     const [inputProduct, setInputProduct] = useState("");
@@ -8,15 +10,17 @@ const Form = (props)=>{
     const [inputCategory, setInputCategory] = useState("TV, Audio y Foto");
     const [inputInterests, setInputInterests] = useState("TV, Audio y Foto");
 
-    const addNewProduct = () => {
-        const userCopy = {...props.userFromApp};
-        userCopy.products.push({
+    
+
+    const handleSubmit = () => {
+        const product = 
+        {
             name: inputProduct,
             description: inputDesciption,
             category: inputCategory,
             interests: inputInterests,
-        });
-        props.setUserFromApp(userCopy)
+        };
+        createProduct(product)
     };
 
     return(
@@ -45,7 +49,7 @@ const Form = (props)=>{
                 <option value="Móviles y Telefonía">Móviles y Telefonía</option>
             </select>
 
-            <button onClick={() => addNewProduct({})}>Crear producto</button>
+            <button onClick={() => handleSubmit()}>Crear producto</button>
 
         </div>
     );

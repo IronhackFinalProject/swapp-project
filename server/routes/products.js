@@ -1,40 +1,35 @@
 const router = require("express").Router();
-const axios = require("axios");
 const {isLoggedIn} = require("../middleware/isLoggedIn");
 const Product = require("../models/Product.model");
 const User = require("../models/User.model");
 
 
-/* GET favorites page */
-router.get("/", isLoggedIn, async (req, res, next) => {
-
-  const currUser = await User.findById(req.session.loggedUser._id).populate('pics')
-
-  res.render("./favorites.hbs", {pics: currUser.pics} );
-});
-
-
 //---------- CREATE FAVORITE PICS BY id ----------------------------------------------------------------------------------------------------------------
-router.post("/createproduct/:id", async (req, res) => { 
-
-  const axiosCall = await axios(`mongodb+srv://SwappAdmin:SwappersToThePower@cluster0.clyvc.mongodb.net/swapp?retryWrites=true&w=majority`)
-  const infoFromProduct = axiosCall.data
+router.post("/create", async (req, res) => { //falta el isLoggedIn, !!!!  <======  <======  <======  <======  <======  
+console.log(req.body)
+const {name, description, category, interests, picture} = req.body;
 
   const dataToUpload = {
-    name: infoFromProduct.name,
-    description: infoFromProduct.description,
-    category: infoFromProduct.category,
-    interests: infoFromProduct.interests,
-    picture: infoFromProduct.picture,
-
+    name,
+    description,
+    category,
+    interests,
+    picture,
   }
 
+  try {
     const createProduct = await Product.create(dataToUpload)
 
     await User.findByIdAndUpdate(req.session.loggedUser._id,
       {$push: {products: createProduct._id}},);
+    res.status(201).json(createProduct.data)
+    // res.json("ok")
 
-    res.redirect(`/products`)
+  } catch (err) {
+console.log(err.message)
+
+  }
+
 });
 
 
@@ -50,4 +45,4 @@ router.post("/createproduct/:id", async (req, res) => {
 //     res.redirect(`/favorites`)
 // });
 
-// module.exports = router;
+module.exports = router;
