@@ -10,4 +10,21 @@
     margin-right: 10px;
     margin-top: 10px;
     font-size: 24px;
+    transition: 0.4s all ease-in;
+}
+
+.homeicon:hover, .hearticon:hover, .messageicon:hover, .smileicon:hover {
+    color: darkslateblue;
+
+}
+
+.plusicon{
+    background-color: green;
+    border-radius: 100%;
+    transition: 0.4s all ease-in;
+}
+
+.plusicon:hover{
+    background-color: white;
+    color: green;
 }

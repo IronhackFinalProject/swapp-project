@@ -1,7 +1,7 @@
 import React from "react"
 import Axios from "axios"
 import { useState } from "react"
-import { Image } from "cloudinary-react"
+
 
 
 function Uploadimage (){

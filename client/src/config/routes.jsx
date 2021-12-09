@@ -2,7 +2,7 @@ import { Navigate } from "react-router-dom";
 import HomePage from "../pages/HomePage";
 import Login from "../pages/LogIn";
 import Signup from "../pages/Signup";
-import ProtectedPage from "../pages/ProtectedPage";
+import MyProducts from "../pages/MyProducts";
 import ProductFile from "../pages/ProductFile";
 import SearchResults from "../pages/SearchResults";
 import CreateProduct from "../pages/CreateProduct";
@@ -58,9 +58,9 @@ const routes = (props) => {
       element: <Login {...props} />,
     },
     {
-      path: PATHS.PROTECTEDPAGE,
+      path: PATHS.MYPRODUCTS,
       element: user ? (
-        <ProtectedPage {...props} />
+        <MyProducts {...props} />
       ) : (
         <Navigate to={PATHS.LOGINPAGE} replace />
       ),

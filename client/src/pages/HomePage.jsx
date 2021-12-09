@@ -1,9 +1,10 @@
 import "../App.css";
 
-function HomePage() {
+function HomePage(props) {
   return (
     <div className="App">
-      <h2>Starting from scratch</h2>
+      <h1>Welcome to swaap</h1>    
+
     </div>
   );
 }
