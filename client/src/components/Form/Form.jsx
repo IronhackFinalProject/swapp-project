@@ -15,6 +15,7 @@ const Form = (props)=>{
     const handleSubmit = () => {
         const product = 
         {
+            publishedBy: props.user._id,
             name: inputProduct,
             description: inputDesciption,
             category: inputCategory,
