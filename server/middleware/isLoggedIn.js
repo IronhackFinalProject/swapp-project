@@ -6,8 +6,8 @@ module.exports = (req, res, next) => {
     return res.status(403).json({ errorMessage: "You are not logged in" });
   }
 
-  Session.findById(req.headers.authorization)
-    .populate( "user" )
+  Session.findById(req.headers.authorization)  
+    .populate( "user" )  //    .populate({ path: "user", model: "User" })  <===esto era así, sherab lo cambió
     .then((session) => {
       if (!session) {
         return res

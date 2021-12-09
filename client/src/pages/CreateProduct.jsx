@@ -3,10 +3,10 @@ import Form from '../components/Form/Form.jsx'
 import UploadImage from '../components/Uploadimage/Uploadimage.jsx'
 
 
-function createproduct() {
+function createproduct({user}) {
   return (
     <div className="App">
-      <Form />
+      <Form user={user} />
       <UploadImage />
     </div>
   );

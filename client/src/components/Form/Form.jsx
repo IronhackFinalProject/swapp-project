@@ -2,25 +2,39 @@ import "../Form/Form.css";
 import React from 'react';
 import {useState} from 'react'
 import { createProduct } from "../../services/products";
- 
+import Axios from "axios"
 
 const Form = (props)=>{
     const [inputProduct, setInputProduct] = useState("");
     const [inputDesciption, setinputDesciption] = useState("");
     const [inputCategory, setInputCategory] = useState("TV, Audio y Foto");
     const [inputInterests, setInputInterests] = useState("TV, Audio y Foto");
-
+    // const [inputImage, setInputImage] = useState("")
+    const [imageSelected, setImageSelected] = useState("")
     
 
     const handleSubmit = () => {
-        const product = 
+
+        const formData = new FormData()
+    formData.append("file", imageSelected)
+    formData.append("upload_preset","gzjkizxz") 
+
+    Axios.post("https://api.cloudinary.com/v1_1/swappapp/image/upload", formData).then((response)=> {console.log(response.data.secure_url)
+    
+    const product = 
         {
+            publishedBy: props.user._id,
             name: inputProduct,
             description: inputDesciption,
             category: inputCategory,
             interests: inputInterests,
+            picture: response.data.secure_url,
         };
         createProduct(product)
+    })
+
+
+        
     };
 
     return(
@@ -48,6 +62,11 @@ const Form = (props)=>{
                 <option value="Moda y accesorios">Moda y accesorios</option>
                 <option value="Móviles y Telefonía">Móviles y Telefonía</option>
             </select>
+
+            <input type="file"
+            onChange={(event) => {
+                setImageSelected(event.target.files[0])
+            }} /> 
 
             <button onClick={() => handleSubmit()}>Crear producto</button>
 
