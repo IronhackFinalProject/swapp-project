@@ -5,11 +5,11 @@ const User = require("../models/User.model");
 
 
 //---------- CREATE FAVORITE PICS BY id ----------------------------------------------------------------------------------------------------------------
-router.post("/create/", isLoggedIn, async (req, res) => { //falta el isLoggedIn, antes del async!!!!  <======  <======  <======  <======  <======  
+router.post("/create", isLoggedIn, async (req, res) => { //falta el isLoggedIn, antes del async!!!!  <======  <======  <======  <======  <======  
 // console.log(req.body)
 // console.log(req.user)
 const {name, description, category, interests, picture, publishedBy} = req.body;
-
+console.log(req.body)
   const dataToUpload = {
     publishedBy,
     name,

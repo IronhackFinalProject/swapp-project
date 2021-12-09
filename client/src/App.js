@@ -5,13 +5,13 @@ import Navbar from "./components/Navbar/Navbar";
 import { getLoggedIn, logout } from "./services/auth";
 import routes from "./config/routes";
 import * as USER_HELPERS from "./utils/userToken";
+import Actionbar from "./components/Actionbar/Actionbar";
 import axios from "axios"
 
 //Components
 // import Product from './components/Product/Product.jsx';
 import Form from './components/Form/Form.jsx';
-import Uploadimage from "./components/Uploadimage/Uploadimage";
-
+//import Uploadimage from "./components/Uploadimage/Uploadimage";
 
 
 
@@ -78,7 +78,7 @@ export default function App() {
         
         <Route path="/createproduct" element={<Form/>} />
       </Routes>
-      
+      <Actionbar />
     </div>
   );
 }

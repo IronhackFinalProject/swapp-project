@@ -1,6 +1,6 @@
 // import Product from "../../../server/models/Product.model";
 import "../App.css";
-import Uploadimage from "../components/Uploadimage/Uploadimage";
+//import Uploadimage from "../components/Uploadimage/Uploadimage";
 
 
 function ProfilePage(props) {
