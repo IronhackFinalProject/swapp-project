@@ -26,7 +26,11 @@ const routes = (props) => {
     },
     {
       path: PATHS.CREATEPRODUCT,
-      element: <CreateProduct {...props} />,
+      element: user ? (
+        <CreateProduct {...props} />
+      ) : (
+        <Navigate to={PATHS.LOGINPAGE} replace />
+      ),
     },
     {
       path: PATHS.EDITPROFILE,
@@ -34,7 +38,11 @@ const routes = (props) => {
     },
     {
       path: PATHS.FAVORITES,
-      element: <Favorites {...props} />,
+      element: user ? (
+        <Favorites {...props} />
+      ) : (
+        <Navigate to={PATHS.LOGINPAGE} replace />
+      ),
     },
     {
       path: PATHS.CHATPROFILE,
