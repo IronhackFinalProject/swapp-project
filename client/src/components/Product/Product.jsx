@@ -1,8 +1,9 @@
-import "../Product/Product.css";
+import "./Product.css";
 import React from 'react';
 
 const Product = (props)=>{
-    const {name, description, category, interests} = props.productData
+  console.log(props)
+    const {name, description, category, interests} = props.product
 
     const getCategory = () => {
         if(category === "TV, Audio y Foto"){
@@ -51,7 +52,9 @@ const Product = (props)=>{
         <div className="Product" style={{backgroundColor: getBackground()}}>
             <h3>{name}</h3>
             <p>{description}</p>
-            <p>El usuario {props.usuario} tiene un objecto de la categoría {getCategory()} y está interesado en cambiarlo por otro de {getInterests()}</p>
+            <p>El usuario {name} tiene un objecto de la categoría {getCategory()} y está interesado en cambiarlo por otro de {getInterests()}</p>
+            {console.log(props)}
+            <img style={{width: "80px"}} src={props.product.picture} alt="josellorón" />
             <button onClick={()=>props.funcionBorrar(name)}>Borrar</button>
         </div>
     );

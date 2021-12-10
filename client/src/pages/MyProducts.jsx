@@ -1,17 +1,23 @@
 import React from "react";
+import Product from "../components/Product/Product"
 
 
 const MyProducts = (props) => {
 
-  // console.log(props.products[0])
+  const filteredProducts = props.products.filter((product) => {
+    return product.publishedBy === props.user._id
+    }
+  )
+
+  console.log(filteredProducts)
 
   return (
     
     <div>
       <h2>These are your products...</h2>
-      <p>{props.products[0].description}</p>
-      
-      {/* <p>{props.products.body}</p> */}
+      {filteredProducts.map((product, index) => {
+        return <Product key={index + product._id} product={product} />
+      })}
 
     </div>
   );
