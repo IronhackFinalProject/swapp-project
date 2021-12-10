@@ -16,7 +16,7 @@ const MyProducts = (props) => {
     <div>
       <h2>These are your products...</h2>
       {filteredProducts.map((product, index) => {
-        return <Product key={index + product._id} product={product} />
+        return <Product key={index + product._id} user={props.user} product={product} />
       })}
 
     </div>
