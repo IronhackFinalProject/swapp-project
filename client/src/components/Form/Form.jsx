@@ -20,10 +20,11 @@ const Form = (props)=>{
     formData.append("upload_preset","gzjkizxz") 
 
     Axios.post("https://api.cloudinary.com/v1_1/swappapp/image/upload", formData).then((response)=> {console.log(response.data.secure_url)
-    
+    // {console.log(props.user.username)}
     const product = 
         {
             publishedBy: props.user._id,
+            publishedName: props.user.username,
             name: inputProduct,
             description: inputDesciption,
             category: inputCategory,

@@ -8,10 +8,11 @@ const User = require("../models/User.model");
 router.post("/create", isLoggedIn, async (req, res) => { //falta el isLoggedIn, antes del async!!!!  <======  <======  <======  <======  <======  
 // console.log(req.body)
 // console.log(req.user)
-const {name, description, category, interests, picture, publishedBy} = req.body;
+const {name, description, category, interests, picture, publishedBy, publishedName} = req.body;
 console.log(req.body)
   const dataToUpload = {
     publishedBy,
+    publishedName,
     name,
     description,
     category,
