@@ -14,7 +14,7 @@ const Navbar = (props) => {
       </Link>
 
       <div className="nav__authLinks">
-      {console.log(props.user)}
+      {/* {console.log(props.user)} */}
         {props.user ? (
           <>
             <Link to={PATHS.MYPRODUCTS} className="authLink">
