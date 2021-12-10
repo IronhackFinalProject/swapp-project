@@ -18,12 +18,6 @@ const MyProducts = (props) => {
       {filteredProducts.map((product, index) => {
         return <Product key={index + product._id} product={product} />
       })}
-      <p>{props.products[11].name}</p>
-      <p>{props.products[11].description}</p>
-      <p>{props.products[11].category}</p>
-      <p>{props.products[11].interests}</p>
-
-      {/* <Product /> */}
 
     </div>
   );
