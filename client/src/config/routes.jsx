@@ -26,9 +26,10 @@ const routes = (props) => {
     },
     {
       path: PATHS.CREATEPRODUCT,
-      element: user ?(
-      <CreateProduct {...props} />
-      ):( <Navigate to={PATHS.LOGINPAGE} replace />
+      element: user ? (
+        <CreateProduct {...props} />
+      ) : (
+        <Navigate to={PATHS.LOGINPAGE} replace />
       ),
     },
     {
@@ -38,8 +39,9 @@ const routes = (props) => {
     {
       path: PATHS.FAVORITES,
       element: user ? (
-      <Favorites {...props} />
-      ):( <Navigate to={PATHS.LOGINPAGE} replace />
+        <Favorites {...props} />
+      ) : (
+        <Navigate to={PATHS.LOGINPAGE} replace />
       ),
     },
     {
