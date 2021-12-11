@@ -51,11 +51,13 @@ const Product = (props)=>{
 
     return (
         <div className="Product" style={{backgroundColor: getBackground()}}>
+            <h5>{publishedName}</h5>
+            <img style={{width: "80px"}} src={picture} alt="josellorón" />
             <h3>{name}</h3>
             <p>{description}</p>
-            <p>El usuario {publishedName} tiene un objecto de la categoría {getCategory()} y está interesado en cambiarlo por otro de {getInterests()}</p>
+            <p>Category: {getCategory()}</p>  
+            <p>Interested in: {getInterests()}</p>
             {/* {console.log(user)} */}
-            <img style={{width: "80px"}} src={picture} alt="josellorón" />
             <button onClick={()=>props.funcionBorrar(name)}>Borrar</button>
         </div>
     );
