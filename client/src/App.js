@@ -7,6 +7,8 @@ import routes from "./config/routes";
 import * as USER_HELPERS from "./utils/userToken";
 import Actionbar from "./components/Actionbar/Actionbar";
 import axios from "axios"
+import Searchbar from "./components/Searchbar/Searchbar";
+
 
 //Components
 // import Product from './components/Product/Product.jsx';

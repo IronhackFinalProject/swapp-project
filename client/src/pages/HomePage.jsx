@@ -1,5 +1,6 @@
 import "../App.css";
 import Product from '../components/Product/Product'
+import Searchbar from "../components/Searchbar/Searchbar";
 
 function HomePage(props) {
   return (
