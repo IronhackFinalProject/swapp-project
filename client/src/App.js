@@ -9,7 +9,7 @@ import Actionbar from "./components/Actionbar/Actionbar";
 import axios from "axios"
 
 //Components
-// import Product from './components/Product/Product.jsx';
+import Product from './components/Product/Product.jsx';
 import Form from './components/Form/Form.jsx';
 //import Uploadimage from "./components/Uploadimage/Uploadimage";
 
@@ -77,6 +77,8 @@ export default function App() {
         ))}
         
         <Route path="/createproduct" element={<Form/>} />
+        <Route path="/deleteproduct" element={<Product/>} />
+
       </Routes>
       <Actionbar />
     </div>

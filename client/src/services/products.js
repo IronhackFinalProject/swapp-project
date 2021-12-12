@@ -36,3 +36,10 @@ export function createProduct(product) {
       .then(successStatus)
       .catch(internalServerError);
   }
+
+  export function deleteProduct(product) {
+    return productService
+      .post("/delete", product)
+      .then(successStatus)
+      .catch(internalServerError);
+  }

@@ -1,11 +1,17 @@
 import "./Product.css";
 import React from 'react';
+// import { setUserToken } from "../../utils/userToken";
+import {useState} from 'react'
+import { deleteProduct } from "../../services/products";
+
+
 
 const Product = (props)=>{
   // console.log(user)
-    const {name, description, category, interests, picture, publishedName} = props.product
-    // const {username, password} = paella.user
+    const [user, setUser] = useState("");
 
+    const {name, description, category, interests, picture, publishedName, publishedBy, _id} = props.product
+    // console.log(_id)
     const getCategory = () => {
         if(category === "TV, Audio y Foto"){
           return "📽"
@@ -47,6 +53,30 @@ const Product = (props)=>{
         return "";
         };
     }
+
+    const deleteProductAndUpdate = (productId) => {
+      // console.log(props.user.products);
+            const filteredProducts = props.user.products.filter((product) => {
+        return props.user.products !== _id;
+      });
+      console.log(filteredProducts)
+    }
+
+    // const deleteProductAndUpdate = (productId) => {
+    //   const filteredProducts = props.user.products.filter((product) => {
+    //     return productId !== product._id;
+    //   });
+
+    //   const copyOfUser = {...user}
+    //   copyOfUser.products = filteredProducts
+    //   setUser(copyOfUser);
+    //   // deleteProduct(copyOfUser)
+    // };
+
+    // const filteredProducts = props.products.filter((product) => {
+    //   return product.publishedBy === props.user._id
+    //   }
+    // )
     
 
     return (
@@ -56,7 +86,8 @@ const Product = (props)=>{
             <p>El usuario {publishedName} tiene un objecto de la categoría {getCategory()} y está interesado en cambiarlo por otro de {getInterests()}</p>
             {/* {console.log(user)} */}
             <img style={{width: "80px"}} src={picture} alt="josellorón" />
-            <button onClick={()=>props.funcionBorrar(name)}>Borrar</button>
+            {/* <button onClick={()=>console.log(_id)}>Borrar</button> */}
+            <button onClick={()=>deleteProductAndUpdate()}>Borrar</button>
         </div>
     );
 };

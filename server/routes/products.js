@@ -4,8 +4,8 @@ const Product = require("../models/Product.model");
 const User = require("../models/User.model");
 
 
-//---------- CREATE FAVORITE PICS BY id ----------------------------------------------------------------------------------------------------------------
-router.post("/create", isLoggedIn, async (req, res) => { //falta el isLoggedIn, antes del async!!!!  <======  <======  <======  <======  <======  
+//---------- CREATE PRODUCT ----------------------------------------------------------------------------------------------------------------
+router.post("/create", isLoggedIn, async (req, res) => { 
 // console.log(req.body)
 // console.log(req.user)
 const {name, description, category, interests, picture, publishedBy, publishedName} = req.body;
@@ -29,12 +29,23 @@ console.log(req.body)
     // res.json("ok")
 
   } catch (err) {
-console.log(err.message)
-
+      console.log(err.message)
   }
 
 });
 
+
+//---------- DELETE PRODUCT ----------------------------------------------------------------------------------------------------------------
+router.post("/delete", isLoggedIn, async (req, res) => { 
+  
+    try{
+        await Product.findByIdAndDelete(req.body.id, {new: true})
+        await User.findByIdAndUpdate(req.user._id, {$pull: {products: req.body.id}},);
+        res.status(201).json(deleteteProduct)
+    }catch(err){
+      console.log(err.message)
+    }
+});
 
 //---------- DELETE FAVORITE PICS BY id ----------------------------------------------------------------------------------------------------------------
 // router.post("/delete/:id", async (req, res) => { 

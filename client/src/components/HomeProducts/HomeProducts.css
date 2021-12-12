@@ -1,0 +1,10 @@
+.HomeProducts {
+    /* background-color: rgb(210, 230, 255) ; */
+    border-radius: 10px;
+    width: 200px;
+    height: 300px;
+    box-shadow: black;
+    margin: 15px;
+    padding: 10px;
+    box-shadow: 2px 2px 5px -3px #000000;
+}
