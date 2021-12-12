@@ -25,14 +25,20 @@ function successStatus(res) {
 // creates a basic url for every request in this file
 const productService = axios.create({
   baseURL: `${process.env.REACT_APP_SERVER_URL}/products`,
-    headers: {
-      Authorization: USER_HELPERS.getUserToken(),
-    },
+  headers: {
+    Authorization: USER_HELPERS.getUserToken(),
+  },
 });
 
 export function createProduct(product) {
-    return productService
-      .post("/create", product)
-      .then(successStatus)
-      .catch(internalServerError);
-  }
+  return productService
+    .post("/create", product)
+    .then(successStatus)
+    .catch(internalServerError);
+}
+
+export function getProducts(query) {
+  return axios.get(
+    `${process.env.REACT_APP_SERVER_URL}${query ? `?search=${query}` : ""}`
+  );
+}

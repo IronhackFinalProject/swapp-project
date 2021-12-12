@@ -6,21 +6,18 @@ import * as CONSTS from "../../utils/consts";
 import Searchbar from "../Searchbar/Searchbar";
 // import Form from './components/Form/Form.jsx';
 
-
 const Navbar = (props) => {
   return (
     <nav>
       <Link to={PATHS.HOMEPAGE} className="nav__projectName">
-         {CONSTS.CAPITALIZED_APP} {/*- created with IronLauncher */}
+        {CONSTS.CAPITALIZED_APP} {/*- created with IronLauncher */}
       </Link>
-      <Searchbar products={props.products}/>
+      <Searchbar handleSearch={props.handleSearch} />
 
       <div className="nav__authLinks">
-      {/* {console.log(props.user)} */}
+        {/* {console.log(props.user)} */}
         {props.user ? (
           <>
-          
-
             <Link to={PATHS.MYPRODUCTS} className="authLink">
               My Products
             </Link>
