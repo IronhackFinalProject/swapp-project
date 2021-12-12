@@ -10,4 +10,22 @@ form.auth__form {
 button.button__submit {
   max-width: 100px;
   margin: 1em auto;
+  padding:10px;
+  border-radius: 5px;
+  background-color: #61dafb;
+  color: white;
+  font-weight: bold;
+  border-width: 1px;
+  border-style: solid;
+  border-color: white;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+button.button__submit:hover{
+  border-color: #61dafb;
+    background-color: white;
+    color: #61dafb;
+    -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0); 
+    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
 }

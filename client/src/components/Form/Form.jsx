@@ -40,15 +40,17 @@ const Form = (props)=>{
 
     return(
         <div>
-            <h1>Crear producto</h1>
+            <h1>Upload your items</h1>
 
-            <p>Producto</p>
-            <input type="text" placeholder="Product name" maxLength={20} onChange={(event) => setInputProduct(event.target.value)}></input>
+            <div className="formProduct">
+            <p>Your item: </p>
+            <input type="text" placeholder="Item name" maxLength={20} onChange={(event) => setInputProduct(event.target.value)}></input>
+            </div>
 
-            <p>Descripción</p>
+            <p>Description</p>
             <textarea type="text" style={{"height" : "100px", "width" : "200px"}} placeholder="Be concise, you just have 100 characters" maxLength={100} onChange={(event) => setinputDesciption(event.target.value)}></textarea>
 
-            <p>Categoría</p>
+            <p>Category</p>
             <select name="category" onChange={(event) => setInputCategory(event.target.value)}>
                 <option value="TV, Audio y Foto">TV, Audio y Foto</option>
                 <option value="Deporte y Ocio">Deporte y Ocio</option>
@@ -56,20 +58,24 @@ const Form = (props)=>{
                 <option value="Móviles y Telefonía">Móviles y Telefonía</option>
             </select>
 
-            <p>¿Qué tipo de producto quieres?</p>
+            <p>What kind of item are you looking for?</p>
             <select name="interests" onChange={(event) => setInputInterests(event.target.value)}>
                 <option value="TV, Audio y Foto">TV, Audio y Foto</option>
                 <option value="Deporte y Ocio">Deporte y Ocio</option>
                 <option value="Moda y accesorios">Moda y accesorios</option>
                 <option value="Móviles y Telefonía">Móviles y Telefonía</option>
             </select>
-
-            <input type="file"
+            
+            <div className="loadImg">
+            <p>Upload the image of your item</p>
+            <input type="file" 
             onChange={(event) => {
                 setImageSelected(event.target.files[0])
             }} /> 
+            </div>
 
-            <button onClick={() => handleSubmit()}>Crear producto</button>
+            <button className="uploadItem" onClick={() => handleSubmit()}>Upload your item!</button>
+            
 
         </div>
     );

@@ -1,10 +1,101 @@
+.productWrapper{
+    display:inline-flex;
+}
+
+
+
+
 .Product {
     /* background-color: rgb(210, 230, 255) ; */
     border-radius: 10px;
     width: 250px;
-    height: 300px;
+    max-height: 570px;
     box-shadow: black;
     margin: 15px;
     padding: 10px;
     box-shadow: 2px 2px 5px -3px #000000;
+    
 }
+
+.productImg{
+    width: 250px;
+    max-height: 250px;
+    border-radius: 5px;
+}
+
+
+.deleteBtn{
+    position: absolute;
+    margin-top: 0px;
+    margin-left: 100px;
+    background-color: rgb(243, 60, 60);
+    color: white;
+    border-style: solid;
+    border-width: 2px;
+    border-color: white;
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    transition: 0.3s;
+    margin-block-end: 5px;
+    cursor: pointer;
+}
+
+.deleteBtn:hover{
+    border-color:rgb(243, 60, 60) ;
+    background-color: white;
+    color: rgb(243, 60, 60);
+    -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0); 
+    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+
+}
+
+
+.categoryBtn{
+    background-color: whitesmoke;
+    border-radius: 20px;
+    padding: 3px 6px;
+    border-width: 1px;
+    margin-right: 10px;
+    position:relative;
+    cursor: pointer;
+}
+
+/* CSS Formulario de creación de Productos */
+
+.formProduct{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loadImg{
+    margin-top: 55px;
+    margin-bottom: 55px;
+}
+
+.selectImg{
+    background-color: yellow;
+}
+
+.uploadItem{
+    padding:10px;
+    border-radius: 5px;
+    background-color: green;
+    color: white;
+    font-weight: bold;
+    border-width: 1px;
+    border-style: solid;
+    border-color: white;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.uploadItem:hover{
+    border-color: green;
+    background-color: white;
+    color: green;
+    -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0); 
+    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+}
+
