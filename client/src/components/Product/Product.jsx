@@ -3,6 +3,10 @@ import React from 'react';
 // import { setUserToken } from "../../utils/userToken";
 import {useState} from 'react'
 import { deleteProduct } from "../../services/products";
+import { useNavigate } from "react-router-dom";
+import * as PATHS from "../../utils/paths";
+
+
 
 
 import { DeleteOutlined, TrophyOutlined, VideoCameraOutlined, UserOutlined } from "@ant-design/icons";
@@ -11,6 +15,8 @@ import {WhatsappShareButton, WhatsappIcon, TwitterShareButton, TwitterIcon, Face
 
 const Product = (props) => {
   // console.log(user)
+  const navigate = useNavigate();
+
   const { name, description, category, interests, picture, publishedName, _id } =
     props.product;
   // const {username, password} = paella.user
@@ -31,13 +37,13 @@ const Product = (props) => {
 
   const getBackground = () => {
     if (category === "TV, Audio y Foto") {
-      return "rgb(210, 230, 255)";
+      return "1px solid #00e4ff";
     } else if (category === "Deporte y Ocio") {
-      return "#daffd2";
+      return "1px solid #2dff00";
     } else if (category === "Moda y accesorios") {
-      return "#ffd2d2";
+      return "1px solid #ff0000";
     } else if (category === "Móviles y Telefonía") {
-      return "#d9d2ff";
+      return "1px solid #2800ff";
     } else {
       return "";
     }
@@ -58,22 +64,16 @@ const Product = (props) => {
   };
 
 
-
-  const deleteProductAndUpdate = (productId) => {
-    // console.log(props.user.products);
-          const filteredProducts = props.user.products.filter((product) => {
-      return props.user.products !== _id;
-    });
-    console.log(filteredProducts)
+  const handleDelete = () => {
+     deleteProduct (_id)
+     navigate(PATHS.HOMEPAGE)
   }
-
-
 
 
   return (
     <div className="productWrapper">
-      <div className="Product" style={{ backgroundColor: getBackground() }}>
-      <button className="deleteBtn" onClick={() => deleteProductAndUpdate(_id)}>
+      <div className="Product" style={{ border: getBackground() }}>
+      <button className="deleteBtn" onClick={() => handleDelete(_id)}>
           <DeleteOutlined />
         </button>
         <h5><><Avatar size="large" icon={<UserOutlined />} /></>    {publishedName}</h5>

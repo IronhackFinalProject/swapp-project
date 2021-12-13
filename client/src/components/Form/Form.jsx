@@ -3,6 +3,9 @@ import React from 'react';
 import {useState} from 'react'
 import { createProduct } from "../../services/products";
 import Axios from "axios"
+import * as PATHS from "../../utils/paths";
+import { useNavigate } from "react-router-dom";
+
 
 const Form = (props)=>{
     const [inputProduct, setInputProduct] = useState("");
@@ -11,6 +14,8 @@ const Form = (props)=>{
     const [inputInterests, setInputInterests] = useState("TV, Audio y Foto");
     // const [inputImage, setInputImage] = useState("")
     const [imageSelected, setImageSelected] = useState("")
+    const navigate = useNavigate();
+
     
 
     const handleSubmit = () => {
@@ -32,6 +37,7 @@ const Form = (props)=>{
             picture: response.data.secure_url,
         };
         createProduct(product)
+        navigate(PATHS.MYPRODUCTS)
     })
 
 

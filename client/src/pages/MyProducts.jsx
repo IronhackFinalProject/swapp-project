@@ -1,8 +1,17 @@
 import React from "react";
 import Product from "../components/Product/Product"
+import { MYPRODUCTS } from "../utils/paths";
 
 
 const MyProducts = (props) => {
+
+
+  // useEffect(() => {
+  //   CREAR ESTADO MYPRODUCTSLLAMADA AXIOS A bd
+  //   RESPONSE SALEN PRODUCTOS=SETMYPRODUCTS
+  // }, []);
+
+
 
   const filteredProducts = props.products.filter((product) => {
     return product.publishedBy === props.user._id

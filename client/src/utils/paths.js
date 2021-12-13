@@ -10,4 +10,4 @@ export const FAVORITES = "/favorites";
 export const SEARCHRESULTS = "/searchresults";
 export const EDITPROFILE = "/editprofile";
 export const CREATEPRODUCT = "/createproduct";
-export const DELETEPRODUCT = "/deleteproduct";
+// export const DELETEPRODUCT = "/deleteproduct";

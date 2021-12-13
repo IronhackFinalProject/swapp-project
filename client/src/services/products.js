@@ -37,9 +37,16 @@ export function createProduct(product) {
       .catch(internalServerError);
   }
 
-  export function deleteProduct(product) {
+  export function deleteProduct(id) {
     return productService
-      .post("/delete", product)
+      .delete(`/${id}`)
+      .then(successStatus)
+      .catch(internalServerError);
+  }
+
+  export function favoritesProduct(product) {
+    return productService
+      .post("/favorites", product)
       .then(successStatus)
       .catch(internalServerError);
   }

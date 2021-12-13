@@ -36,12 +36,12 @@ console.log(req.body)
 
 
 //---------- DELETE PRODUCT ----------------------------------------------------------------------------------------------------------------
-router.post("/delete", isLoggedIn, async (req, res) => { 
-  
+router.delete("/:id", isLoggedIn, async (req, res) => { 
+  console.log(req.params.id)
     try{
-        await Product.findByIdAndDelete(req.body.id, {new: true})
-        await User.findByIdAndUpdate(req.user._id, {$pull: {products: req.body.id}},);
-        res.status(201).json(deleteteProduct)
+        await Product.findByIdAndDelete(req.params.id, {new: true})
+        await User.findByIdAndUpdate(req.user._id, {$pull: {products: req.params.id}},);
+        res.status(204).json()
     }catch(err){
       console.log(err.message)
     }
