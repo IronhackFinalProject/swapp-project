@@ -17,7 +17,7 @@ const Product = (props) => {
   // console.log(user)
   const navigate = useNavigate();
 
-  const { name, description, category, interests, picture, publishedName, _id } =
+  const { name, description, category, interests, picture, publishedName, _id, publishedBy } =
     props.product;
   // const {username, password} = paella.user
 
@@ -73,9 +73,11 @@ const Product = (props) => {
   return (
     <div className="productWrapper">
       <div className="Product" style={{ border: getBackground() }}>
-      <button className="deleteBtn" onClick={() => handleDelete(_id)}>
+
+        { props.user._id === publishedBy ? <button className="deleteBtn" onClick={() => handleDelete(_id)}>
           <DeleteOutlined />
-        </button>
+        </button> : ""}
+
         <h5><><Avatar size="large" icon={<UserOutlined />} /></>    {publishedName}</h5>
         <img className="productImg" src={picture} alt="josellorón" />
         <h3>{name}</h3>
