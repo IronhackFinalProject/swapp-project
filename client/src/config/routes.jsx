@@ -46,11 +46,17 @@ const routes = (props) => {
     },
     {
       path: PATHS.CHATPROFILE,
-      element: <ChatProfile {...props} />,
+      element: user ? (
+      <ChatProfile {...props} />
+      ):( <Navigate to={PATHS.LOGINPAGE} replace />
+        ),
     },
     {
       path: PATHS.PROFILEPAGE,
-      element: <ProfilePage {...props} />,
+      element: user ? (
+      <ProfilePage {...props} />
+      ):( <Navigate to={PATHS.LOGINPAGE} replace />
+        ),
     },
     {
       path: PATHS.HOMEPAGE,
@@ -60,7 +66,6 @@ const routes = (props) => {
       path: PATHS.SIGNUPPAGE,
       element: <Signup {...props} />,
     },
-
     {
       path: PATHS.LOGINPAGE,
       element: <Login {...props} />,

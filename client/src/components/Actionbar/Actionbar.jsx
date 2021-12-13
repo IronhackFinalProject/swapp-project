@@ -5,22 +5,20 @@ import { Link } from "react-router-dom";
 import * as PATHS from "../../utils/paths";
 // import * as CONSTS from "../../utils/consts";
 
-const Actionbar = (props) => {
+const Actionbar = () => {
 
     return(
-<div className="actionbar">
-{console.log(props.user)}
-{props.user ? (
+<div className="actionbar"> {/*Cuando el user SI está Registrado >>>> va a estas rutas.... Cuando NO está registrado va a la ruta de routes.jsx */}
     <>
     <Link to={PATHS.HOMEPAGE} className="nav__projectName">
          <HomeOutlined className="homeicon"/>
       </Link>
 
-      <Link to={PATHS.LOGINPAGE} className="nav__projectName">
+      <Link to={PATHS.FAVORITES} className="nav__projectName">
       <HeartOutlined className="hearticon"/>
       </Link>
-
-      <Link to={PATHS.LOGINPAGE} className="nav__projectName">
+      
+      <Link to={PATHS.CREATEPRODUCT} className="nav__projectName">
       <PlusCircleOutlined className="plusicon"/>
       </Link>
 
@@ -33,34 +31,8 @@ const Actionbar = (props) => {
       </Link>
 </>
 
-)  :  (
-
-    <>
-    <Link to={PATHS.HOMEPAGE} className="nav__projectName">
-         <HomeOutlined className="homeicon"/>
-      </Link>
-
-      <Link to={PATHS.FAVORITES} className="nav__projectName">
-         <HeartOutlined className="hearticon"/>
-      </Link>
-
-      <Link to={PATHS.CREATEPRODUCT} className="nav__projectName">
-         <PlusCircleOutlined className="plusicon"/>
-      </Link>
-
-      <Link to={PATHS.LOGINPAGE} className="nav__projectName">
-         <MessageOutlined className="homeicon"/>
-      </Link>
-
-      <Link to={PATHS.LOGINPAGE} className="nav__projectName">
-         <SmileOutlined className="homeicon"/>
-      </Link>
-
-    </>
-)}
-
-</div>
-    )
-}
+      </div>
+   )
+}    
 
 export default Actionbar
