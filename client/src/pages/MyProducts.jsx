@@ -1,6 +1,8 @@
 import React from "react";
 import Product from "../components/Product/Product"
 import { MYPRODUCTS } from "../utils/paths";
+import SearchShortcuts from "../components/SearchShortcuts/SearchShortcuts"
+
 
 
 const MyProducts = (props) => {
@@ -24,6 +26,11 @@ const MyProducts = (props) => {
     
     <div>
       <h2>These are your products...</h2>
+
+      <div className="searchShortcuts">
+          <SearchShortcuts handleSearch={props.requestProducts} /> 
+      </div>
+
       {filteredProducts.map((product, index) => {
         return <Product key={index + product._id} user={props.user} product={product} />
       })}

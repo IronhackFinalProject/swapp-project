@@ -11,6 +11,7 @@ import Actionbar from "./components/Actionbar/Actionbar";
 //Components
 import Product from './components/Product/Product.jsx';
 import Form from './components/Form/Form.jsx';
+import SearchShortcuts from "./components/SearchShortcuts/SearchShortcuts";
 //import Uploadimage from "./components/Uploadimage/Uploadimage";
 
 export default function App() {
@@ -78,7 +79,7 @@ export default function App() {
         handleSearch={requestProducts}
       />
       <Routes>
-        {routes({ user, authenticate, handleLogout, products }).map((route) => (
+        {routes({ user, authenticate, handleLogout, products, requestProducts }).map((route) => (
           <Route key={route.path} path={route.path} element={route.element} />
         ))}
         

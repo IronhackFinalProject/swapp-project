@@ -37,7 +37,7 @@ const Form = (props)=>{
             picture: response.data.secure_url,
         };
         createProduct(product)
-        navigate(PATHS.MYPRODUCTS)
+        // navigate(PATHS.MYPRODUCTS)
     })
 
 
