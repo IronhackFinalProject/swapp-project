@@ -25,6 +25,10 @@ const SearchShortcuts = (props) => {
     const searchTelefonia = () => {
      handleSearch("Móviles y Telefonía");
     };
+
+    const searchAll = () => {
+      handleSearch("");
+    };
   
     return (
       <div className="SearchShortcut">
@@ -33,6 +37,7 @@ const SearchShortcuts = (props) => {
         <button><img src={TvIcon} alt="Search Tv" onClick={() => searchTV()} /></button>
         <button><img src={ModaIcon} alt="Search Moda" onClick={() => searchModa()} /></button>
         <button><img src={TelefoniaIcon} alt="Search Telefonía" onClick={() => searchTelefonia()} /></button>
+        <button><img src={SportsIcon} alt="Search All" onClick={() => searchAll()} /></button>
 
       </div>
     );

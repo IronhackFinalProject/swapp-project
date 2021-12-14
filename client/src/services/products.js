@@ -44,9 +44,9 @@ export function createProduct(product) {
       .catch(internalServerError);
   }
 
-  export function favoritesProduct(product) {
+  export function favProduct(id) {
     return productService
-      .post("/favorites", product)
+      .post(`/favorites/${id}`)
       .then(successStatus)
       .catch(internalServerError);
   }

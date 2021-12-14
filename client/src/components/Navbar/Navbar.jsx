@@ -30,6 +30,10 @@ const Navbar = (props) => {
               My Profile
             </Link>
 
+            <Link to={PATHS.FAVORITES} className="authLink">
+              Favorites
+            </Link>
+
             <button className="nav-logoutbtn" onClick={props.handleLogout}>
               Logout
             </button>

@@ -20,7 +20,8 @@ const MyProducts = (props) => {
     }
   )
 
-  console.log(filteredProducts)
+  console.log(props.products[0].publishedBy)
+  console.log(props.user._id)
 
   return (
     

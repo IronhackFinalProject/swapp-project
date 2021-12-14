@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const isLoggedIn = require("../middleware/isLoggedIn");
 const Product = require("../models/Product.model");
+const Favorite = require("../models/Favoritos.model");
 const User = require("../models/User.model");
 
 
@@ -47,16 +48,48 @@ router.delete("/:id", isLoggedIn, async (req, res) => {
     }
 });
 
-//---------- DELETE FAVORITE PICS BY id ----------------------------------------------------------------------------------------------------------------
-// router.post("/delete/:id", async (req, res) => { 
-  
-//     try{
-//         await Pic.findByIdAndDelete(req.params.id, {new: true})
-//         await User.findByIdAndUpdate(req.session.loggedUser._id, {$pull: {pics: req.params.id}},);
-//     }catch(err){
-//       console.log(err)
+
+//---------- PRODUCT TO FAVORITES ------------------------------------------------------------------------------------------------------------
+router.post("/favorites/:id", isLoggedIn, async (req, res) => { 
+  console.log(req.params.id)
+    try{
+        // await Product.findByIdAndUpdate(req.params.id, {new: true})
+        await User.findByIdAndUpdate(req.user._id, {$push: {favoritos: req.params.id}},);
+        res.status(204).json()
+    }catch(err){
+      console.log(err.message)
+    }
+});
+
+
+
+// router.post("/favorites", isLoggedIn, async (req, res) => { 
+//   // console.log(req.body)
+//   // console.log(req.user)
+//   const {name, description, category, interests, picture, publishedBy, publishedName} = req.body;
+//   console.log(req.body)
+//     const dataToUpload = {
+//       publishedBy,
+//       publishedName,
+//       name,
+//       description,
+//       category,
+//       interests,
+//       picture,
 //     }
-//     res.redirect(`/favorites`)
-// });
+  
+//     try {
+//       const favProduct = await Favorite.create(dataToUpload)
+  
+//       await User.findByIdAndUpdate(req.user._id,
+//         {$push: {favoritos: favProduct._id}},);
+//       res.status(201).json(favProduct)
+//       // res.json("ok")
+  
+//     } catch (err) {
+//         console.log(err.message)
+//     }
+  
+//   });
 
 module.exports = router;

@@ -3,13 +3,15 @@ import React from 'react';
 // import { setUserToken } from "../../utils/userToken";
 import {useState} from 'react'
 import { deleteProduct } from "../../services/products";
+import { favProduct } from "../../services/products";
+
 import { useNavigate } from "react-router-dom";
 import * as PATHS from "../../utils/paths";
 
 
 
 
-import { DeleteOutlined, TrophyOutlined, VideoCameraOutlined, UserOutlined } from "@ant-design/icons";
+import { DeleteOutlined, TrophyOutlined, VideoCameraOutlined, UserOutlined, AlertOutlined } from "@ant-design/icons";
 import {Avatar} from 'antd'
 import {WhatsappShareButton, WhatsappIcon, TwitterShareButton, TwitterIcon, FacebookIcon, FacebookShareButton} from 'react-share'
 
@@ -69,6 +71,11 @@ const Product = (props) => {
      navigate(PATHS.HOMEPAGE)
   }
 
+  const handleFav = () => {
+    favProduct (_id)
+    // navigate(PATHS.HOMEPAGE)
+ }
+
 
   return (
     <div className="productWrapper">
@@ -76,6 +83,10 @@ const Product = (props) => {
 
         { props.user._id === publishedBy ? <button className="deleteBtn" onClick={() => handleDelete(_id)}>
           <DeleteOutlined />
+        </button> : ""}
+
+        { props.user._id !== publishedBy ? <button className="favBtn" onClick={() => handleFav(_id)}>
+          <AlertOutlined />
         </button> : ""}
 
         <h5><><Avatar size="large" icon={<UserOutlined />} /></>    {publishedName}</h5>
