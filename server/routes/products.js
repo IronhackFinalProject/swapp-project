@@ -63,6 +63,19 @@ router.post("/favorites/:id", isLoggedIn, async (req, res) => {
 
 
 
+
+router.get("/favorites/:id", isLoggedIn, async (req, res) => {
+  console.log(req.params)
+  try{
+    const userFromDB = await User.findById(req.params.id).populate("favoritos")
+    res.status(200).json({favoritos: userFromDB.favoritos})
+  }catch(err){
+    console.log(err.message)
+  }
+})
+
+
+
 // router.post("/favorites", isLoggedIn, async (req, res) => { 
 //   // console.log(req.body)
 //   // console.log(req.user)

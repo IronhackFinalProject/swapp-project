@@ -4,6 +4,7 @@ import TvIcon from './icons/image.png'
 import ModaIcon from './icons/moda.png'
 import TelefoniaIcon from './icons/telefonia.png'
 import "../SearchShortcuts/SearchShortcuts.css";
+// import { Link } from 'react-router-dom';
  
 
 
@@ -34,6 +35,14 @@ const SearchShortcuts = (props) => {
       <div className="SearchShortcut">
 
         <button><img src={SportsIcon} alt="Search Deporte" onClick={() => searchDeporte()} /></button>
+        {/* <Link to={PATHS.HOMEPAGE} onClick={() => searchDeporte()}> </Link> */}
+          {/* <img src={SportsIcon} alt="Search Deporte" onClick={() => searchDeporte()} /> */}
+        
+
+      {/* <Link to={PATHS.FAVORITES} className="nav__projectName">
+      <HeartOutlined className="hearticon"/>
+      </Link> */}
+
         <button><img src={TvIcon} alt="Search Tv" onClick={() => searchTV()} /></button>
         <button><img src={ModaIcon} alt="Search Moda" onClick={() => searchModa()} /></button>
         <button><img src={TelefoniaIcon} alt="Search Telefonía" onClick={() => searchTelefonia()} /></button>

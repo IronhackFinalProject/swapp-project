@@ -86,6 +86,7 @@ export default function App() {
         <Route path="/createproduct" element={<Form/>} />
         <Route path="/deleteproduct" element={<Product/>} />
 
+        {/* <Route path="*" element={<ErrorPage/>} /> */}
       </Routes>
       <Actionbar />
     </div>

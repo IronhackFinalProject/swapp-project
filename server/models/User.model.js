@@ -7,7 +7,7 @@ const userSchema = new Schema(
     lastname: { type: String },
     password: { type: String },
     products: [{ type: Schema.Types.ObjectId, ref: "Product" }],
-    favoritos: [{ type: Schema.Types.ObjectId, ref: "Favoritos" }],
+    favoritos: [{ type: Schema.Types.ObjectId, ref: "Product" }],
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
