@@ -5,6 +5,11 @@ import { createProduct } from "../../services/products";
 import Axios from "axios"
 import * as PATHS from "../../utils/paths";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify'  // Pruebas Toastify
+import 'react-toastify/dist/ReactToastify.css';         // Pruebas Toastify
+
+
+
 
 
 const Form = (props)=>{
@@ -40,9 +45,16 @@ const Form = (props)=>{
         // navigate(PATHS.MYPRODUCTS)
     })
 
+ 
 
-        
+       
     };
+
+   // const para TOAST -- testing
+   const notify = () => toast.info("Uploading your item...", {
+    position:toast.POSITION.BOTTOM_CENTER
+   })
+
 
     return(
         <div>
@@ -80,7 +92,9 @@ const Form = (props)=>{
             }} /> 
             </div>
 
-            <button className="uploadItem" onClick={() => handleSubmit()}>Upload your item!</button>
+            <button className="uploadItem" onClick={() => {handleSubmit(); notify()}}>Upload your item!</button> {/* se encapsula notify como función dentro del onClick para que llame a las dos funciones al mismo tiempo*/}
+            
+            <ToastContainer/> {/* Prueba para TOAST */}
             
 
         </div>
