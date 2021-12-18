@@ -3,6 +3,7 @@ import "../App.css";
 //import Uploadimage from "../components/Uploadimage/Uploadimage";
 import avatar from "../components/SearchShortcuts/icons/avatar-369-456321.png"
 
+import Actionbar from "./../components/Actionbar/Actionbar"
 
 function ProfilePage(props) {
 //  console.log(props.products)

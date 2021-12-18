@@ -9,6 +9,7 @@ const Actionbar = () => {
 
     return(
 <div className="actionbar"> {/*Cuando el user SI está Registrado >>>> va a estas rutas.... Cuando NO está registrado va a la ruta de routes.jsx */}
+    
     <>
     <Link to={PATHS.HOMEPAGE} className="nav__projectName">
          <HomeOutlined className="homeicon"/>
@@ -30,7 +31,7 @@ const Actionbar = () => {
       <SmileOutlined className="smileicon"/>
       </Link>
 </>
-
+    
       </div>
    )
 }    
