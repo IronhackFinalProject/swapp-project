@@ -4,8 +4,8 @@ import React from 'react';
 import {useState} from 'react'
 import { deleteProduct } from "../../services/products";
 import { favProduct } from "../../services/products";
-
-import { useNavigate } from "react-router-dom";
+import favIcon from "../SearchShortcuts/icons/no_fav.png"
+import { useNavigate, Link } from "react-router-dom";
 import * as PATHS from "../../utils/paths";
 
 
@@ -16,12 +16,10 @@ import {Avatar} from 'antd'
 import {WhatsappShareButton, WhatsappIcon, TwitterShareButton, TwitterIcon, FacebookIcon, FacebookShareButton} from 'react-share'
 
 const Product = (props) => {
-  // console.log(user)
   const navigate = useNavigate();
 
   const { name, description, category, interests, picture, publishedName, _id, publishedBy } =
     props.product;
-  // const {username, password} = paella.user
 
   const getCategory = () => {
     if (category === "TV, Audio y Foto") {
@@ -73,13 +71,18 @@ const Product = (props) => {
 
   const handleFav = () => {
     favProduct (_id)
-    // navigate(PATHS.HOMEPAGE)
  }
+
+//  const productPage = () => {
+//   navigate(`/product/${_id}`)
+// }
 
 
   return (
     <div className="productWrapper">
+      <div className="Product">
       <div className="Product" style={{ border: getBackground() }}>
+
         {props.user ? 
            props.user._id === publishedBy ? 
            <button className="deleteBtn" onClick={() => handleDelete(_id)}>
@@ -92,8 +95,24 @@ const Product = (props) => {
          : "Added" }
 
         <h5><><Avatar size="large" icon={<UserOutlined />} /></>    {publishedName}</h5>
+
+        <Link to={`/product/${_id}`}>
+          <img className="productImg" src={picture} alt="ProductPicture" />
+        </Link>
+
+        <h3>{name}{props.user ? 
+           props.user._id !== publishedBy ? <button className="favBtn" onClick={() => handleFav(_id)}><img src={favIcon} alt="favIcon" className="favIcon"/></button>
+         : "" 
+         : ""}</h3>
+
+        {/* // --prueba de opción Guillem para generar params con boton favs --------
         <img className="productImg" src={picture} alt="josellorón" />
-        <h3>{name}</h3>
+        <h3>{name}{props.user ? 
+           props.user._id !== publishedBy ? <button className="favBtn" onClick={() => productPage(_id)}><img src={favIcon} alt="favIcon" className="favIcon"/></button>
+         : "" 
+         : ""}</h3>
+         // --prueba de opción Guillem para generar params con boton favs -------- */}
+
         <p>{description}</p>
         <button className="categoryBtn">Category: {getCategory()}</button>
         <button className="categoryBtn">Interested in: {getInterests()}</button>
@@ -123,7 +142,7 @@ const Product = (props) => {
 
         </>
         
-        
+        </div>
       </div>
     </div>
   );

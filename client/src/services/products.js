@@ -33,8 +33,6 @@ const productService = axios.create({
 export function createProduct(product) {
     return productService
       .post("/create", product)
-      .then(successStatus)
-      .catch(internalServerError);
   }
 
   export function deleteProduct(id) {
@@ -62,13 +60,16 @@ export function createProduct(product) {
   //que será una array
   //res.status(200).json({favorites: userFromDB.favorites})  ....ok....
   
-  export function getfavoriteProducts(userId) {
-    return productService
-      .get(`/favorites/${userId}`)
-      .then(successStatus)
-      .catch(internalServerError);
-  }
+export function getfavoriteProducts(userId) {
+  return productService
+    .get(`/favorites/${userId}`)
+    .then(successStatus)
+    .catch(internalServerError);
+}
 
+export function getOneProduct(productId) {
+  return productService.get(`/getOneProduct/${productId}`)
+}
 
 export function getProducts(query) {
   return axios.get(

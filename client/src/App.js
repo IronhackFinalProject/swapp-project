@@ -10,6 +10,8 @@ import Actionbar from "./components/Actionbar/Actionbar";
 
 //Components
 import Product from './components/Product/Product.jsx';
+import ProductDetails from './pages/Product';
+
 import Form from './components/Form/Form.jsx';
 import SearchShortcuts from "./components/SearchShortcuts/SearchShortcuts";
 //import Uploadimage from "./components/Uploadimage/Uploadimage";
@@ -85,8 +87,9 @@ export default function App() {
         
         <Route path="/createproduct" element={<Form/>} />
         <Route path="/deleteproduct" element={<Product/>} />
+        <Route path="/product/:productId" element={<ProductDetails/>} />
 
-        {/* <Route path="*" element={<ErrorPage/>} /> */}
+        <Route path="*" element={<h1>This is a fake 404 ErrorPage</h1>} />
       </Routes>
       <Actionbar />
     </div>

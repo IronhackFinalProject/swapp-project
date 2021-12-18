@@ -7,10 +7,9 @@ const User = require("../models/User.model");
 
 //---------- CREATE PRODUCT ----------------------------------------------------------------------------------------------------------------
 router.post("/create", isLoggedIn, async (req, res) => { 
-// console.log(req.body)
-// console.log(req.user)
-const {name, description, category, interests, picture, publishedBy, publishedName} = req.body;
-console.log(req.body)
+
+const {name, description, category, interests, picture, publishedBy, publishedName, condition} = req.body;
+
   const dataToUpload = {
     publishedBy,
     publishedName,
@@ -19,6 +18,7 @@ console.log(req.body)
     category,
     interests,
     picture,
+    condition,
   }
 
   try {
@@ -27,13 +27,38 @@ console.log(req.body)
     await User.findByIdAndUpdate(req.user._id,
       {$push: {products: createProduct._id}},);
     res.status(201).json(createProduct)
-    // res.json("ok")
-
   } catch (err) {
-      console.log(err.message)
+      res.status(400).json(err.errors)
   }
 
 });
+
+
+//---------- MODIFY PRODUCT -----------------------------( WORK IN PROGRESS )-----------------------------------------------------------------------------------
+// router.patch("/update/:id_product", isLoggedIn, async (req, res) => { 
+
+//   const { name, description, category, interests, picture, publishedBy, publishedName, condition } = req.body;
+  
+//   const dataToUpload = {
+//     publishedBy,
+//     publishedName,
+//     name,
+//     description,
+//     category,
+//     interests,
+//     picture,
+//     condition,
+//   }
+  
+//     try {
+//      const product = await Product.findByIdAndUpdate(req.params.id_product, dataToUpload, {new: true})
+//      res.status(201),json(product)
+//     } catch (err) {
+//         console.log(err.message)
+//     }
+// });
+//---------- MODIFY PRODUCT -----------------------------( WORK IN PROGRESS )-----------------------------------------------------------------------------------
+
 
 
 //---------- DELETE PRODUCT ----------------------------------------------------------------------------------------------------------------
@@ -62,8 +87,6 @@ router.post("/favorites/:id", isLoggedIn, async (req, res) => {
 });
 
 
-
-
 router.get("/favorites/:id", isLoggedIn, async (req, res) => {
   console.log(req.params)
   try{
@@ -76,33 +99,16 @@ router.get("/favorites/:id", isLoggedIn, async (req, res) => {
 
 
 
-// router.post("/favorites", isLoggedIn, async (req, res) => { 
-//   // console.log(req.body)
-//   // console.log(req.user)
-//   const {name, description, category, interests, picture, publishedBy, publishedName} = req.body;
-//   console.log(req.body)
-//     const dataToUpload = {
-//       publishedBy,
-//       publishedName,
-//       name,
-//       description,
-//       category,
-//       interests,
-//       picture,
-//     }
-  
-//     try {
-//       const favProduct = await Favorite.create(dataToUpload)
-  
-//       await User.findByIdAndUpdate(req.user._id,
-//         {$push: {favoritos: favProduct._id}},);
-//       res.status(201).json(favProduct)
-//       // res.json("ok")
-  
-//     } catch (err) {
-//         console.log(err.message)
-//     }
-  
-//   });
+
+//---------- PRODUCT DETAILS PAGE ------------------------------------------------------------------------------------------------------------
+
+router.get("/getOneProduct/:product_Id", (req, res) => {
+const id = req.params.product_Id
+  Product
+    .findById(id)
+    .then(response => res.json(response))
+    .catch(err => res.status(500).json(err))
+})
+
 
 module.exports = router;

@@ -32,11 +32,6 @@ const Favorites = (props) => {
   return (
     <div className="App">
       <h2>FAVORITES</h2>
-
-      <div className="searchShortcuts">
-          <SearchShortcuts handleSearch={props.requestProducts} /> 
-      </div>
-
       {favorites.map((product, index) => {
         return <Product key={index + product._id} user={props.user} product={product} />
       })}

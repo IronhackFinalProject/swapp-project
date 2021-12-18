@@ -6,7 +6,6 @@ import Product from '../components/Product/Product'
 import SearchShortcuts from "../components/SearchShortcuts/SearchShortcuts"
 
 function HomePage(props) {
-  // console.log(props.products)
 
 
   return (
