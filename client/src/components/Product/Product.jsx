@@ -81,11 +81,15 @@ const Product = (props) => {
     <div className="productWrapper">
       <div className="Product" style={{ border: getBackground() }}>
         {props.user ? 
-           props.user._id === publishedBy ? <button className="deleteBtn" onClick={() => handleDelete(_id)}>
+           props.user._id === publishedBy ? 
+           <button className="deleteBtn" onClick={() => handleDelete(_id)}>
             <DeleteOutlined />
-          </button> : <button className="favBtn" onClick={() => handleFav(_id)}>
-            <AlertOutlined /> </button>
-         : "" }
+          </button> 
+          : 
+          <button className="favBtn" onClick={() => handleFav(_id)}>
+            <AlertOutlined /> 
+            </button>
+         : "Added" }
 
         <h5><><Avatar size="large" icon={<UserOutlined />} /></>    {publishedName}</h5>
         <img className="productImg" src={picture} alt="josellorón" />
