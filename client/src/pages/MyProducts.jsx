@@ -7,21 +7,15 @@ import SearchShortcuts from "../components/SearchShortcuts/SearchShortcuts"
 
 const MyProducts = (props) => {
 
-
   // useEffect(() => {
   //   CREAR ESTADO MYPRODUCTSLLAMADA AXIOS A bd
   //   RESPONSE SALEN PRODUCTOS=SETMYPRODUCTS
   // }, []);
 
-
-
   const filteredProducts = props.products.filter((product) => {
     return product.publishedBy === props.user._id
     }
   )
-
-  console.log(props.products[0].publishedBy)
-  console.log(props.user._id)
 
   return (
     

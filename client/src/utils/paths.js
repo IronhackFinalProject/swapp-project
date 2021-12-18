@@ -5,7 +5,7 @@ export const MYPRODUCTS = "/myproducts";
 
 export const PROFILEPAGE = "/profilepage";
 export const CHATPROFILE = "/chatprofile";
-export const PRODUCTFILE = "/Producfile";
+export const PRODUCT = "/product";
 export const FAVORITES = "/favorites";
 export const SEARCHRESULTS = "/searchresults";
 export const EDITPROFILE = "/editprofile";

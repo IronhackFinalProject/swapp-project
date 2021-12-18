@@ -20,9 +20,6 @@ const Favorites = (props) => {
       //podemos mapear su contenido
   }
 
-  //id haciendo y ahora reinicio el pc  --> ok gracias, aquí estamos!
-
-
   useEffect(()=> { //cuando se monta el componente
     getFavorites()
     //llamada a la api a ese endpoint  --> no se como hacer 
@@ -35,11 +32,6 @@ const Favorites = (props) => {
   return (
     <div className="App">
       <h2>FAVORITES</h2>
-
-      <div className="searchShortcuts">
-          <SearchShortcuts handleSearch={props.requestProducts} /> 
-      </div>
-
       {favorites.map((product, index) => {
         return <Product key={index + product._id} user={props.user} product={product} />
       })}

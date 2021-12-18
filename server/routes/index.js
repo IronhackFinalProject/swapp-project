@@ -22,7 +22,7 @@ router.get("/", async (req, res, next) => {
       products = await Product.find({});
     }
 
-    console.log(products);
+    // console.log(products);
     res.status(200).json({ products });
   } catch (err) {
     console.log("err msg");

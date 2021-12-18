@@ -3,7 +3,7 @@ import HomePage from "../pages/HomePage";
 import Login from "../pages/LogIn";
 import Signup from "../pages/Signup";
 import MyProducts from "../pages/MyProducts";
-import ProductFile from "../pages/ProductFile";
+import Product from "../pages/Product";
 import SearchResults from "../pages/SearchResults";
 import CreateProduct from "../pages/CreateProduct";
 import EditProfile from "../pages/EditProfile";
@@ -17,8 +17,8 @@ const routes = (props) => {
   const { user } = props;
   return [
     {
-      path: PATHS.PRODUCTFILE,
-      element: <ProductFile {...props} />,
+      path: PATHS.PRODUCT,
+      element: <Product {...props} />,
     },
     {
       path: PATHS.SEARCHRESULTS,

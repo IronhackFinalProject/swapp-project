@@ -19,6 +19,9 @@ const Form = (props)=>{
     const [inputInterests, setInputInterests] = useState("TV, Audio y Foto");
     // const [inputImage, setInputImage] = useState("")
     const [imageSelected, setImageSelected] = useState("")
+    const [inputCondition, setInputCondition] = useState("New");
+
+
     const navigate = useNavigate();
 
     
@@ -40,13 +43,13 @@ const Form = (props)=>{
             category: inputCategory,
             interests: inputInterests,
             picture: response.data.secure_url,
+            condition: inputCondition,
         };
         createProduct(product)
+        .then(() => {})
+        .catch((err) => console.log(err));
         // navigate(PATHS.MYPRODUCTS)
     })
-
- 
-
        
     };
 
@@ -67,6 +70,14 @@ const Form = (props)=>{
 
             <p>Description</p>
             <textarea type="text" style={{"height" : "100px", "width" : "200px"}} placeholder="Be concise, you just have 100 characters" maxLength={100} onChange={(event) => setinputDesciption(event.target.value)}></textarea>
+
+            <p>Condition</p>
+            <select name="condition" onChange={(event) => setInputCondition(event.target.value)}>
+                <option value="New">New</option>
+                <option value="Good">Good</option>
+                <option value="Correct">Correct</option>
+                <option value="Bad">Bad</option>
+            </select>
 
             <p>Category</p>
             <select name="category" onChange={(event) => setInputCategory(event.target.value)}>
@@ -93,9 +104,8 @@ const Form = (props)=>{
             </div>
 
             <button className="uploadItem" onClick={() => {handleSubmit(); notify()}}>Upload your item!</button> {/* se encapsula notify como función dentro del onClick para que llame a las dos funciones al mismo tiempo*/}
-            
+
             <ToastContainer/> {/* Prueba para TOAST */}
-            
 
         </div>
     );
