@@ -7,6 +7,9 @@ import { favProduct } from "../../services/products";
 import favIcon from "../SearchShortcuts/icons/no_fav.png"
 import { useNavigate, Link } from "react-router-dom";
 import * as PATHS from "../../utils/paths";
+import { deleteFav } from "../../services/products";
+import unFavIcon from "../SearchShortcuts/icons/fav.png"
+
 
 
 
@@ -20,7 +23,6 @@ const Product = (props) => {
 
   const { name, description, category, interests, picture, publishedName, _id, publishedBy } =
     props.product;
-
   const getCategory = () => {
     if (category === "TV, Audio y Foto") {
       return <><VideoCameraOutlined/></>;
@@ -70,12 +72,21 @@ const Product = (props) => {
   }
 
   const handleFav = () => {
-    favProduct (_id)
+    favProduct (_id,  props.refreshProducts)
  }
+
+  const handleUnfav = () => {
+    deleteFav (_id,  props.refreshProducts)
+  }
 
 //  const productPage = () => {
 //   navigate(`/product/${_id}`)
 // }
+
+// const filteredProducts = props.products.filter((product) => {
+//   return props.user.favoritos !== _id
+//   }
+// )
 
 
   return (
@@ -88,11 +99,9 @@ const Product = (props) => {
            <button className="deleteBtn" onClick={() => handleDelete(_id)}>
             <DeleteOutlined />
           </button> 
-          : 
-          <button className="favBtn" onClick={() => handleFav(_id)}>
-            <AlertOutlined /> 
-            </button>
-         : "Added" }
+          : ""
+          
+         : "" }
 
         <h5><><Avatar size="large" icon={<UserOutlined />} /></>    {publishedName}</h5>
 
@@ -100,18 +109,14 @@ const Product = (props) => {
           <img className="productImg" src={picture} alt="ProductPicture" />
         </Link>
 
-        <h3>{name}{props.user ? 
-           props.user._id !== publishedBy ? <button className="favBtn" onClick={() => handleFav(_id)}><img src={favIcon} alt="favIcon" className="favIcon"/></button>
-         : "" 
-         : ""}</h3>
+        <h3>
+        {name} 
+            {!props.user?.favoritos.includes(_id) 
+              ? <button className="favBtn" onClick={() => handleFav(_id)}><img src={favIcon} alt="favIcon" className="favIcon"/></button>
+              :
+              <button className="favBtn" onClick={() => handleUnfav(_id)}><img src={unFavIcon} alt="favIcon" className="favIcon"/></button>}
 
-        {/* // --prueba de opción Guillem para generar params con boton favs --------
-        <img className="productImg" src={picture} alt="josellorón" />
-        <h3>{name}{props.user ? 
-           props.user._id !== publishedBy ? <button className="favBtn" onClick={() => productPage(_id)}><img src={favIcon} alt="favIcon" className="favIcon"/></button>
-         : "" 
-         : ""}</h3>
-         // --prueba de opción Guillem para generar params con boton favs -------- */}
+        </h3>
 
         <p>{description}</p>
         <button className="categoryBtn">Category: {getCategory()}</button>

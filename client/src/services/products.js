@@ -46,14 +46,26 @@ export function createProduct(product) {
       .catch(internalServerError);
   }
 
-  export function favProduct(id) {
+  export function favProduct(id, cb) {
     return productService
       .post(`/favorites/${id}`, {}, {
         headers: {
           Authorization: USER_HELPERS.getUserToken(),
         }
       })
-      .then(successStatus)
+      .then(() => {
+        cb()
+      })
+      .catch(internalServerError);
+  }
+
+
+  export function deleteFav(id, cb) {
+    return productService
+      .patch(`/favorites/${id}`)
+      .then(() => {
+        cb()
+      })
       .catch(internalServerError);
   }
 

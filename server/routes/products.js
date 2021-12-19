@@ -74,7 +74,7 @@ router.delete("/:id", isLoggedIn, async (req, res) => {
 });
 
 
-//---------- PRODUCT TO FAVORITES ------------------------------------------------------------------------------------------------------------
+//---------- PRODUCT TO FAVORITES ------(.post   .get   .delete)-------------------------------------------------------------------------
 router.post("/favorites/:id", isLoggedIn, async (req, res) => { 
   console.log(req.params.id)
     try{
@@ -96,6 +96,17 @@ router.get("/favorites/:id", isLoggedIn, async (req, res) => {
     console.log(err.message)
   }
 })
+
+
+router.patch("/favorites/:id", isLoggedIn, async (req, res) => { 
+  console.log(req.params.id)
+ 
+         User.findByIdAndUpdate(req.user._id, {$pullAll: {favoritos: [req.params.id]}},{new:true})
+            .then(user => {
+              res.status(204).json(user.favoritos.length)
+            })
+            .catch(err => console.log(err.message))
+});
 
 
 
