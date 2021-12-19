@@ -1,5 +1,8 @@
 import axios from "axios";
 import * as USER_HELPERS from "../utils/userToken";
+import * as PATHS from "../utils/paths";
+import { useNavigate } from "react-router-dom";
+import { RedditShareCount } from "react-share";
 
 // here we are just maing our code look more DRY. With every backend call we must deal with errors and success states. The idea of creating these kinds of services is to make our lives easier in the components
 function internalServerError(err) {
@@ -26,6 +29,8 @@ function successStatus(res) {
 const authService = axios.create({
   baseURL: `${process.env.REACT_APP_SERVER_URL}/auth`,
 });
+
+
 
 export function login(credentials) {
   return authService
@@ -62,3 +67,20 @@ export function logout() {
     .then(successStatus)
     .catch(internalServerError);
 }
+
+
+// const navigate = useNavigate();
+
+// export function logout() {
+
+//   return authService
+//     .delete("/logout", {
+//       headers: {
+//         Authorization: USER_HELPERS.getUserToken(),
+//       },
+//     })
+//     .then(() => {
+//       navigate(PATHS.HOMEPAGE)
+//   })
+//     .catch(internalServerError);
+// }

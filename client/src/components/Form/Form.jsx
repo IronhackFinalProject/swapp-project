@@ -24,7 +24,8 @@ const Form = (props)=>{
 
     const navigate = useNavigate();
 
-    
+    const [err, setErr] = useState({})
+
 
     const handleSubmit = () => {
 
@@ -46,9 +47,14 @@ const Form = (props)=>{
             condition: inputCondition,
         };
         createProduct(product)
-        .then(() => {})
-        .catch((err) => console.log(err));
-        // navigate(PATHS.MYPRODUCTS)
+        .then(() => {
+            setTimeout(()=>{ navigate(PATHS.MYPRODUCTS) }, 3000);
+        })
+        .catch(err => {
+            setErr(err)
+            console.log({ err })
+        })
+        // .catch((err) => console.log(err));
     })
        
     };
@@ -65,7 +71,8 @@ const Form = (props)=>{
 
             <div className="formProduct">
             <p>Your item: </p>
-            <input type="text" placeholder="Item name" maxLength={20} onChange={(event) => setInputProduct(event.target.value)}></input>
+            <input type="text" name="name" placeholder="Item name" maxLength={20} onChange={(event) => setInputProduct(event.target.value)}></input>
+            {err.name && <span>{err.name.message}</span>}
             </div>
 
             <p>Description</p>
@@ -105,7 +112,7 @@ const Form = (props)=>{
 
             <button className="uploadItem" onClick={() => {handleSubmit(); notify()}}>Upload your item!</button> {/* se encapsula notify como función dentro del onClick para que llame a las dos funciones al mismo tiempo*/}
 
-            <ToastContainer/> {/* Prueba para TOAST */}
+            <ToastContainer autoClose={3000} /> {/* Prueba para TOAST */}
 
         </div>
     );
