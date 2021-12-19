@@ -105,7 +105,7 @@ router.get("/favorites/:id", isLoggedIn, async (req, res) => {
 router.get("/getOneProduct/:product_Id", (req, res) => {
 const id = req.params.product_Id
   Product
-    .findById(id)
+    .findById(id).populate("publishedBy")
     .then(response => res.json(response))
     .catch(err => res.status(500).json(err))
 })

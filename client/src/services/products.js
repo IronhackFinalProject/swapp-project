@@ -32,7 +32,11 @@ const productService = axios.create({
 
 export function createProduct(product) {
     return productService
-      .post("/create", product)
+      .post("/create", product, {
+        headers: {
+          Authorization: USER_HELPERS.getUserToken(),
+        }
+      })
   }
 
   export function deleteProduct(id) {
@@ -44,7 +48,11 @@ export function createProduct(product) {
 
   export function favProduct(id) {
     return productService
-      .post(`/favorites/${id}`)
+      .post(`/favorites/${id}`, {}, {
+        headers: {
+          Authorization: USER_HELPERS.getUserToken(),
+        }
+      })
       .then(successStatus)
       .catch(internalServerError);
   }

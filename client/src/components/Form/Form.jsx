@@ -29,33 +29,38 @@ const Form = (props)=>{
 
     const handleSubmit = () => {
 
-        const formData = new FormData()
+    const formData = new FormData()
     formData.append("file", imageSelected)
     formData.append("upload_preset","gzjkizxz") 
 
-    Axios.post("https://api.cloudinary.com/v1_1/swappapp/image/upload", formData).then((response)=> {console.log(response.data.secure_url)
-    // {console.log(props.user.username)}
-    const product = 
-        {
-            publishedBy: props.user._id,
-            publishedName: props.user.username,
-            name: inputProduct,
-            description: inputDesciption,
-            category: inputCategory,
-            interests: inputInterests,
-            picture: response.data.secure_url,
-            condition: inputCondition,
-        };
-        createProduct(product)
-        .then(() => {
-            setTimeout(()=>{ navigate(PATHS.MYPRODUCTS) }, 3000);
-        })
+    Axios.post("https://api.cloudinary.com/v1_1/swappapp/image/upload", formData)
+        .then(response => {
+            const product = {
+                publishedBy: props.user._id,
+                publishedName: props.user.username,
+                name: inputProduct,
+                description: inputDesciption,
+                category: inputCategory,
+                interests: inputInterests,
+                picture: response.data.secure_url,
+                condition: inputCondition,
+            };
+            createProduct(product)
+                .then(() => {
+                    setTimeout(()=>{ navigate(PATHS.MYPRODUCTS) }, 3000);
+                })
+                .catch(err => {
+                    setErr(err.response.data)
+                    console.log( err.response.data )
+                })
+        })   
         .catch(err => {
-            setErr(err)
-            console.log({ err })
+            setErr({
+                img: {
+                    message: "You have to include an image to your product!"
+                }
+            })
         })
-        // .catch((err) => console.log(err));
-    })
        
     };
 
@@ -64,6 +69,13 @@ const Form = (props)=>{
     position:toast.POSITION.BOTTOM_CENTER
    })
 
+    const handleFocus = (e) => {
+        const newErr = {
+            ...err, 
+            [e.target.name]:null
+        }
+        setErr( newErr )
+    }
 
     return(
         <div>
@@ -71,12 +83,14 @@ const Form = (props)=>{
 
             <div className="formProduct">
             <p>Your item: </p>
-            <input type="text" name="name" placeholder="Item name" maxLength={20} onChange={(event) => setInputProduct(event.target.value)}></input>
+            <input type="text" name="name" onFocus={handleFocus} placeholder="Item name" maxLength={20} onChange={(event) => setInputProduct(event.target.value)}></input>
             {err.name && <span>{err.name.message}</span>}
             </div>
 
             <p>Description</p>
-            <textarea type="text" style={{"height" : "100px", "width" : "200px"}} placeholder="Be concise, you just have 100 characters" maxLength={100} onChange={(event) => setinputDesciption(event.target.value)}></textarea>
+            <textarea type="text" name="description" onFocus={handleFocus} style={{"height" : "100px", "width" : "200px"}} placeholder="Be concise, you just have 100 characters" maxLength={100} onChange={(event) => setinputDesciption(event.target.value)}></textarea>
+            {err.description && <span>{err.description.message}</span>}
+
 
             <p>Condition</p>
             <select name="condition" onChange={(event) => setInputCondition(event.target.value)}>
@@ -108,6 +122,8 @@ const Form = (props)=>{
             onChange={(event) => {
                 setImageSelected(event.target.files[0])
             }} /> 
+            {err.img && <span>{err.img.message}</span>}
+
             </div>
 
             <button className="uploadItem" onClick={() => {handleSubmit(); notify()}}>Upload your item!</button> {/* se encapsula notify como función dentro del onClick para que llame a las dos funciones al mismo tiempo*/}

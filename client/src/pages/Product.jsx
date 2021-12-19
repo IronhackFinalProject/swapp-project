@@ -13,25 +13,37 @@ function ProductDetails(props) {
   const [product, setProduct] = useState({})
   const { productId } = useParams()
 
+  const [loading, setLoading] = useState(true)
+
   useEffect(() => {
     getOneProduct(productId)
-          .then(response => setProduct(response.data))
-          .catch(err => console.log(err))
+          .then(response => {
+            setProduct(response.data)
+            setLoading(false)
+          })
+          .catch(err => {
+            setLoading(false)
+            console.log(err)
+          })
   }, [productId])
-
+ console.log(product)
 
   return (
     <div className="App">
-      <h2>Detalles de {product.name}</h2>
-      <img className="productImg" src={product.picture} alt="ProductPicture" />
-      <h1>{product.description}</h1>
-      <h1>{product.condition}</h1>
-      <h1>{product.category}</h1>
-      <h1>{product.interests}</h1>
-      <h1>Este producto es del usuario {product.publishedBy}</h1>
-      {/* <h1>{props.user.name}</h1> */}
+    { loading ? "loading" :
+      <div>
+        <h2>Detalles de {product.name}</h2>
+        <img className="productImg" src={product.picture} alt="ProductPicture" />
+        <h1>{product.description}</h1>
+        <h1>{product.condition}</h1>
+        <h1>{product.category}</h1>
+        <h1>{product.interests}</h1>
+        <h1>Este producto es del usuario {product.publishedBy.username}</h1>
+        <h1>Este producto está en {product.publishedBy.city}</h1>
 
-
+        {/* <h1>{props.user.name}</h1> */}
+      </div>
+    }
     </div>
   );
 }

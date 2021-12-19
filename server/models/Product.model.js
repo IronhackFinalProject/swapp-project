@@ -8,7 +8,7 @@ const productSchema = new Schema(
     description: { type: String, required: [true, "Description is required"] },
     category: { type: String },
     interests: { type: String },
-    picture: { type: String },
+    picture: { type: String, required: [true, "Picture is required"] },
     condition: { type: String },
   },
   { timestamps: true }
