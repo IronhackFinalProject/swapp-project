@@ -47,7 +47,8 @@ transition: opacity 0.3s ease-in-out;
 .productImg{
     cursor: pointer;
     width: 250px;
-    max-height: 250px;
+    height: 150px;
+    object-fit: cover;
     /* border-radius: 40px 40px 0px 0px; */
     margin: 0px;
     margin-top: -15px;

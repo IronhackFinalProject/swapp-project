@@ -16,7 +16,7 @@ const Favorites = (props) => {
 
   useEffect(()=> { //cuando se monta el componente
     getFavorites()
-
+    // refreshProducts()
   },[])
 
 

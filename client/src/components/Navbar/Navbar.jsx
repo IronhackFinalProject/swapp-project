@@ -5,8 +5,12 @@ import * as PATHS from "../../utils/paths";
 import * as CONSTS from "../../utils/consts";
 import Searchbar from "../Searchbar/Searchbar";
 // import Form from './components/Form/Form.jsx';
+import { useNavigate } from "react-router-dom";
+
 
 const Navbar = (props) => {
+  const navigate = useNavigate();
+
   return (
     <nav>
       <Link to={PATHS.HOMEPAGE} className="nav__projectName">
