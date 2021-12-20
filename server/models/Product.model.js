@@ -4,6 +4,7 @@ const productSchema = new Schema(
   {
     publishedBy: { type: Schema.Types.ObjectId, ref: "User" },
     publishedName: { type: String },
+    publishedCity: { type: String },
     name: { type: String, required: [true, "Name is required"] },
     description: { type: String, required: [true, "Description is required"] },
     category: { type: String },

@@ -8,11 +8,12 @@ const User = require("../models/User.model");
 //---------- CREATE PRODUCT ----------------------------------------------------------------------------------------------------------------
 router.post("/create", isLoggedIn, async (req, res) => { 
 
-const {name, description, category, interests, picture, publishedBy, publishedName, condition} = req.body;
+const {name, description, category, interests, picture, publishedBy, publishedName, condition, publishedCity} = req.body;
 
   const dataToUpload = {
     publishedBy,
     publishedName,
+    publishedCity,
     name,
     description,
     category,

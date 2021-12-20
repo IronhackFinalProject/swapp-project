@@ -24,7 +24,7 @@ const Favorites = (props) => {
     <div className="App">
       <h2>FAVORITES</h2>
       {favorites.map((product, index) => {
-        return <Product key={index + product._id} user={props.user} product={product} />
+        return <Product refreshProducts={props.reloadUser} key={index + product._id} user={props.user} product={product} />
       })}
 
     </div>

@@ -38,6 +38,7 @@ const Form = (props)=>{
             const product = {
                 publishedBy: props.user._id,
                 publishedName: props.user.username,
+                publishedCity: props.user.city,
                 name: inputProduct,
                 description: inputDesciption,
                 category: inputCategory,

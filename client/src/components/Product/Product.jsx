@@ -21,7 +21,7 @@ import {WhatsappShareButton, WhatsappIcon, TwitterShareButton, TwitterIcon, Face
 const Product = (props) => {
   const navigate = useNavigate();
 
-  const { name, description, category, interests, picture, publishedName, _id, publishedBy } =
+  const { name, description, category, interests, picture, publishedName, _id, publishedBy, publishedCity } =
     props.product;
   const getCategory = () => {
     if (category === "TV, Audio y Foto") {
@@ -91,34 +91,38 @@ const Product = (props) => {
 
   return (
     <div className="productWrapper">
+       {/* style={{ border: getBackground() }} */}
       <div className="Product">
-      <div className="Product" style={{ border: getBackground() }}>
 
-        {props.user ? 
+        {/* {props.user ? 
            props.user._id === publishedBy ? 
            <button className="deleteBtn" onClick={() => handleDelete(_id)}>
             <DeleteOutlined />
           </button> 
           : ""
           
-         : "" }
+         : "" } */}
 
-        <h5><><Avatar size="large" icon={<UserOutlined />} /></>    {publishedName}</h5>
+        <h5><><Avatar size="large" icon={<UserOutlined />} /></>{publishedName}</h5>
 
         <Link to={`/product/${_id}`}>
           <img className="productImg" src={picture} alt="ProductPicture" />
         </Link>
 
-        <h3>
+        <h3 className="productName">
         {name} 
+        </h3>
+        <h3 className="productCity">
+        {publishedCity} 
+        </h3>
+        <h3>
             {!props.user?.favoritos.includes(_id) 
               ? <button className="favBtn" onClick={() => handleFav(_id)}><img src={favIcon} alt="favIcon" className="favIcon"/></button>
               :
               <button className="favBtn" onClick={() => handleUnfav(_id)}><img src={unFavIcon} alt="favIcon" className="favIcon"/></button>}
-
         </h3>
 
-        <p>{description}</p>
+        {/* <p>{description}</p>
         <button className="categoryBtn">Category: {getCategory()}</button>
         <button className="categoryBtn">Interested in: {getInterests()}</button>
         
@@ -145,9 +149,8 @@ const Product = (props) => {
         </WhatsappShareButton>
 
 
-        </>
+        </> */}
         
-        </div>
       </div>
     </div>
   );

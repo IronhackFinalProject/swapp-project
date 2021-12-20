@@ -5,22 +5,65 @@
 .Product {
     font-family: 'Ubuntu', sans-serif;    
     background-color: #ffffff;
-    border-radius: 40px;
-    /* border: 1px solid #010101; */
+    border-radius: 0px;
     width: 250px;
-    height: 600px;
+    height: 350px;
     box-shadow: black;
     margin: 15px;
-    /* padding: 10px; */
-    /* border: 2px solid #c3c3c3; */
-    /* box-shadow: 2px 5px 7px -3px #000000; */
+    /* border: solid 2px #8d8d8d; */
+
+    /* --------- */
+    /* padding: 20px;
+    background-color: #fff;
+    top: -1px;
+    left: -1px;
+    border-top: 40px solid #22252C;
+    border-right: 40px solid transparent; */
+    clip-path: polygon(
+        0% 5%,
+        10% 0,
+        100% 0,
+        100% 0%,
+        100% 0%,
+        100% 100%,
+        0% 100%,
+        0% 100%,
+        0% 0%
+      );
+    transition: all 0.3s ease-in-out;
 }
 
+/* .Product::after{
+box-shadow: 0 5px 15px rgba(0,0,0,1);
+transition: opacity 0.3s ease-in-out;
+} */
+
+.Product:hover {
+    transform: scale(1.01, 1.01);
+    background-color: #e3e4ff;
+  }
+
+
 .productImg{
+    cursor: pointer;
     width: 250px;
     max-height: 250px;
-    border-radius: 40px 40px 0px 0px;
+    /* border-radius: 40px 40px 0px 0px; */
     margin: 0px;
+    margin-top: -15px;
+    clip-path: polygon(
+        0% 15%,
+        8% 0,
+        100% 0,
+        100% 0%,
+        100% 0%,
+        100% 100%,
+        0% 100%,
+        0% 100%,
+        0% 0%
+      );
+    /* -webkit-box-shadow: 0px -5px 5px 10px #000000; 
+    box-shadow: 0px -5px 5px 10px #000000; */
 }
 
 .favIcon {
@@ -34,10 +77,20 @@
     border: none;
 }
 
-.Product h3 {
+.productName {
+    color:rgb(56, 56, 56);
     font-size: 25px;
     text-align: left;
     padding-left:20px;
+    margin-top: 5px;
+}
+
+.productCity{
+    color:#6667AB;
+    font-size: 15px;
+    text-align: left;
+    padding-left:20px;
+    margin-top: -20px;
 }
 
 .deleteBtn{
