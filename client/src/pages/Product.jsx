@@ -54,10 +54,14 @@ const handleUnfav = () => {
           <div class="card-body">
             <h2>{product.name}</h2>
             <h3>
-                {!props.user?.favoritos.includes(product._id) 
+                {props.user ?
+                  props.user._id === product.publishedBy ? 
+                  !props.user?.favoritos.includes(product._id) 
                   ? <button className="favBtn" onClick={() => handleFav(product._id)}><img src={favIcon} alt="favIcon" className="favIcon"/></button>
                   :
-                  <button className="favBtn" onClick={() => handleUnfav(product._id)}><img src={unFavIcon} alt="favIcon" className="favIcon"/></button>}
+                  <button className="favBtn" onClick={() => handleUnfav(product._id)}><img src={unFavIcon} alt="favIcon" className="favIcon"/></button>
+                : ""
+                : ""}
             </h3>
             <p><strong>About:</strong> {product.description}</p>
             <p><strong>Product condition:</strong> {product.condition}</p>
