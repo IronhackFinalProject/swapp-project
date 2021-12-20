@@ -32,7 +32,11 @@ const productService = axios.create({
 
 export function createProduct(product) {
     return productService
-      .post("/create", product)
+      .post("/create", product, {
+        headers: {
+          Authorization: USER_HELPERS.getUserToken(),
+        }
+      })
   }
 
   export function deleteProduct(id) {
@@ -42,10 +46,26 @@ export function createProduct(product) {
       .catch(internalServerError);
   }
 
-  export function favProduct(id) {
+  export function favProduct(id, cb) {
     return productService
-      .post(`/favorites/${id}`)
-      .then(successStatus)
+      .post(`/favorites/${id}`, {}, {
+        headers: {
+          Authorization: USER_HELPERS.getUserToken(),
+        }
+      })
+      .then(() => {
+        cb()
+      })
+      .catch(internalServerError);
+  }
+
+
+  export function deleteFav(id, cb) {
+    return productService
+      .patch(`/favorites/${id}`)
+      .then(() => {
+        cb()
+      })
       .catch(internalServerError);
   }
 

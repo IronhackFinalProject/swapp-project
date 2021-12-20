@@ -8,11 +8,12 @@ const User = require("../models/User.model");
 //---------- CREATE PRODUCT ----------------------------------------------------------------------------------------------------------------
 router.post("/create", isLoggedIn, async (req, res) => { 
 
-const {name, description, category, interests, picture, publishedBy, publishedName, condition} = req.body;
+const {name, description, category, interests, picture, publishedBy, publishedName, condition, publishedCity} = req.body;
 
   const dataToUpload = {
     publishedBy,
     publishedName,
+    publishedCity,
     name,
     description,
     category,
@@ -74,7 +75,7 @@ router.delete("/:id", isLoggedIn, async (req, res) => {
 });
 
 
-//---------- PRODUCT TO FAVORITES ------------------------------------------------------------------------------------------------------------
+//---------- PRODUCT TO FAVORITES ------(.post   .get   .delete)-------------------------------------------------------------------------
 router.post("/favorites/:id", isLoggedIn, async (req, res) => { 
   console.log(req.params.id)
     try{
@@ -109,6 +110,17 @@ router.delete("/:id", isLoggedIn, async (req, res) => {
 });
 
 
+router.patch("/favorites/:id", isLoggedIn, async (req, res) => { 
+  console.log(req.params.id)
+ 
+         User.findByIdAndUpdate(req.user._id, {$pullAll: {favoritos: [req.params.id]}},{new:true})
+            .then(user => {
+              res.status(204).json(user.favoritos.length)
+            })
+            .catch(err => console.log(err.message))
+});
+
+
 
 
 //---------- PRODUCT DETAILS PAGE ------------------------------------------------------------------------------------------------------------
@@ -116,7 +128,7 @@ router.delete("/:id", isLoggedIn, async (req, res) => {
 router.get("/getOneProduct/:product_Id", (req, res) => {
 const id = req.params.product_Id
   Product
-    .findById(id)
+    .findById(id).populate("publishedBy")
     .then(response => res.json(response))
     .catch(err => res.status(500).json(err))
 })

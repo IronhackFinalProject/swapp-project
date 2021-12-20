@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import LoadingComponent from "./components/Loading";
 import Navbar from "./components/Navbar/Navbar";
@@ -22,11 +22,31 @@ export default function App() {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  function requestProducts(query) {
+  const requestProducts = useCallback((query) => {
     getProducts(query).then((res) => {
       setProducts(res.data.products);
     });
+  }, [])
+
+  const reloadUser = () => {
+    const accessToken = USER_HELPERS.getUserToken();
+
+    if (!accessToken) {
+      return setIsLoading(false);
+    }
+
+    getLoggedIn(accessToken).then((res) => {
+      if (!res.status) {
+        return setIsLoading(false);
+      }
+  
+      setUser(res.data.user);
+      console.log(res.data.user.favoritos)
+      requestProducts()
+      setIsLoading(false);
+    });
   }
+
 
   useEffect(() => {
     const accessToken = USER_HELPERS.getUserToken();
@@ -44,7 +64,7 @@ export default function App() {
     });
 
     requestProducts();
-  }, []);
+  }, [requestProducts]);
 
   // console.log(products)
 
@@ -81,7 +101,7 @@ export default function App() {
         handleSearch={requestProducts}
       />
       <Routes>
-        {routes({ user, authenticate, handleLogout, products, requestProducts }).map((route) => (
+        {routes({ user, authenticate, handleLogout, products, requestProducts, reloadUser }).map((route) => (
           <Route key={route.path} path={route.path} element={route.element} />
         ))}
         

@@ -9,7 +9,7 @@ export default function Signup({ authenticate }) {
   const [form, setForm] = useState({
     username: "",
     password: "",
-    city: "",
+    city: "Barcelona",
     name: "",
     lastname: "",
   });

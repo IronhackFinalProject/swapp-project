@@ -7,6 +7,9 @@ import { favProduct } from "../../services/products";
 import favIcon from "../SearchShortcuts/icons/no_fav.png"
 import { useNavigate, Link } from "react-router-dom";
 import * as PATHS from "../../utils/paths";
+import { deleteFav } from "../../services/products";
+import unFavIcon from "../SearchShortcuts/icons/fav.png"
+
 
 
 
@@ -18,9 +21,8 @@ import {Avatar} from 'antd'
 const Product = (props) => {
   const navigate = useNavigate();
 
-  const { name, description, category, interests, picture, publishedName, _id, publishedBy } =
+  const { name, description, category, interests, picture, publishedName, _id, publishedBy, publishedCity } =
     props.product;
-
   const getCategory = () => {
     if (category === "TV, Audio y Foto") {
       return <><VideoCameraOutlined/></>;
@@ -70,50 +72,57 @@ const Product = (props) => {
   }
 
   const handleFav = () => {
-    favProduct (_id)
+    favProduct (_id,  props.refreshProducts)
  }
+
+  const handleUnfav = () => {
+    deleteFav (_id,  props.refreshProducts)
+  }
 
 //  const productPage = () => {
 //   navigate(`/product/${_id}`)
 // }
 
+// const filteredProducts = props.products.filter((product) => {
+//   return props.user.favoritos !== _id
+//   }
+// )
+
 
   return (
     <div className="productWrapper">
+       {/* style={{ border: getBackground() }} */}
       <div className="Product">
-      <div className="Product" style={{ border: getBackground() }}>
 
-        {props.user ? 
+        {/* {props.user ? 
            props.user._id === publishedBy ? 
            <button className="deleteBtn" onClick={() => handleDelete(_id)}>
             <DeleteOutlined />
           </button> 
-          : 
-          <button className="favBtn" onClick={() => handleFav(_id)}>
-            <AlertOutlined /> 
-            </button>
-         : "Added" }
+          : ""
+          
+         : "" } */}
 
-        <h5><><Avatar size="large" icon={<UserOutlined />} /></>    {publishedName}</h5>
+        <h5><><Avatar size="large" icon={<UserOutlined />} /></>{publishedName}</h5>
 
         <Link to={`/product/${_id}`}>
           <img className="productImg" src={picture} alt="ProductPicture" />
         </Link>
 
-        <h3>{name}{props.user ? 
-           props.user._id !== publishedBy ? <button className="favBtn" onClick={() => handleFav(_id)}><img src={favIcon} alt="favIcon" className="favIcon"/></button>
-         : "" 
-         : ""}</h3>
+        <h3 className="productName">
+        {name} 
+        </h3>
+        <h3 className="productCity">
+        {publishedCity} 
+        </h3>
+        <h3>
+            {!props.user?.favoritos.includes(_id) 
+              ? <button className="favBtn" onClick={() => handleFav(_id)}><img src={favIcon} alt="favIcon" className="favIcon"/></button>
+              :
+              <button className="favBtn" onClick={() => handleUnfav(_id)}><img src={unFavIcon} alt="favIcon" className="favIcon"/></button>}
+        </h3>
 
-        {/* // --prueba de opción Guillem para generar params con boton favs --------
-        <img className="productImg" src={picture} alt="josellorón" />
-        <h3>{name}{props.user ? 
-           props.user._id !== publishedBy ? <button className="favBtn" onClick={() => productPage(_id)}><img src={favIcon} alt="favIcon" className="favIcon"/></button>
-         : "" 
-         : ""}</h3>
-         // --prueba de opción Guillem para generar params con boton favs -------- */}
-
-        <p>{description}</p>
+        {/* <p>{description}</p>
         <button className="categoryBtn">Category: {getCategory()}</button>
         <button className="categoryBtn">Interested in: {getInterests()}</button>
         
@@ -142,7 +151,6 @@ const Product = (props) => {
 
         </> */}
         
-        </div>
       </div>
     </div>
   );
