@@ -117,7 +117,7 @@ const Product = (props) => {
         </h3>
         <h3>
             {props.user ?
-              props.user._id === publishedBy ? 
+              props.user._id !== publishedBy ? 
               !props.user?.favoritos.includes(_id) 
               ? <button className="favBtn" onClick={() => handleFav(_id)}><img src={favIcon} alt="favIcon" className="favIcon"/></button>
               :
