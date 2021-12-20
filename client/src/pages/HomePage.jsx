@@ -38,7 +38,7 @@ console.log(props.products)
       <Searchbar handleSearch={requestProducts} />
       </div>
       <div className="searchShortcuts">
-          <SearchShortcuts handleSearch={props.requestProducts} /> 
+          <SearchShortcuts handleSearch={requestProducts} /> 
       </div>
 
       {products.map((product, index) => {

@@ -57,6 +57,13 @@ export function signup(credentials) {
     .catch(internalServerError);
 }
 
+export function editProfile(credentials) {
+  return authService
+    .put("/editprofile", credentials)
+    .then(successStatus)
+    .catch(internalServerError);
+}
+
 export function logout() {
   return authService
     .delete("/logout", {
