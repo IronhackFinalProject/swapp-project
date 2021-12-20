@@ -62,7 +62,11 @@ export function createProduct(product) {
 
   export function deleteFav(id, cb) {
     return productService
-      .patch(`/favorites/${id}`)
+      .patch(`/favorites/${id}`, {},{
+        headers: {
+          Authorization: USER_HELPERS.getUserToken(),
+        }
+      })
       .then(() => {
         cb()
       })
@@ -82,7 +86,11 @@ export function createProduct(product) {
   
 export function getfavoriteProducts(userId) {
   return productService
-    .get(`/favorites/${userId}`)
+    .get(`/favorites/${userId}`, {
+      headers: {
+        Authorization: USER_HELPERS.getUserToken(),
+      }
+    })
     .then(successStatus)
     .catch(internalServerError);
 }

@@ -25,6 +25,7 @@ export default function App() {
   const requestProducts = useCallback((query) => {
     getProducts(query).then((res) => {
       setProducts(res.data.products);
+      console.log(res.data.products)
     });
   }, [])
 
