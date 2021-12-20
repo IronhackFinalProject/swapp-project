@@ -4,7 +4,8 @@ nav {
   justify-content: space-around;
   flex-wrap: wrap;
   background: #282c34;
-  font-weight: 600;
+  font-weight: 300;
+  
 }
 
 .nav__projectName {
@@ -45,4 +46,8 @@ nav {
 .nav-logoutbtn:hover {
   transform: scale(1.05);
   background-color: #d13e3e;
+}
+
+.logo{
+  width: 50px;
 }

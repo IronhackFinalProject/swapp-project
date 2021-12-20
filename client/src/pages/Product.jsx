@@ -3,7 +3,10 @@ import Product from "../components/Product/Product";
 import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { getOneProduct } from '../services/products.js'
-
+import {WhatsappShareButton, WhatsappIcon, TwitterShareButton, TwitterIcon, FacebookIcon, FacebookShareButton} from 'react-share'
+import {MessageOutlined} from "@ant-design/icons"
+import "./productDetails.css"
+import * as PATHS from "../../src/utils/paths"
 
 
 
@@ -22,15 +25,41 @@ function ProductDetails(props) {
 
   return (
     <div className="App">
-      <h2>Detalles de {product.name}</h2>
+      <h3>{product.publishedName}
+      <Link to={PATHS.CHATPROFILE} className="nav__projectName"><button className="chatUser">Chat<MessageOutlined /></button></Link>
+      </h3>
       <img className="productImg" src={product.picture} alt="ProductPicture" />
-      <h1>{product.description}</h1>
-      <h1>{product.condition}</h1>
-      <h1>{product.category}</h1>
-      <h1>{product.interests}</h1>
-      <h1>Este producto es del usuario {product.publishedBy}</h1>
+      <h2>{product.name}</h2>
+      <h4>Category: {product.category}</h4>
+      <p>{product.description}</p>
+      <h4>Condition: {product.condition}</h4>
+      
+      <h3>Want to Swapp for {product.interests} item</h3>
+    
       {/* <h1>{props.user.name}</h1> */}
+      <p>Share this item...</p>
+        <>
+        
+        <TwitterShareButton 
+        url={"https://twitter.com/intent/tweet"}
+        title={"Swapp app"}>
+          <TwitterIcon size={32} borderRadius={15}/>
+        </TwitterShareButton>
+        
 
+        <FacebookShareButton
+        url={"https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"}
+        title={"Swapp app"}>
+          <FacebookIcon size={32} borderRadius={15}/>
+        </FacebookShareButton>
+
+        <WhatsappShareButton
+        url={"https://api.whatsapp.com/send?text=Swapp app"}
+        >
+        <WhatsappIcon size={32} borderRadius={15}/>
+        </WhatsappShareButton>
+        </>
+        
 
     </div>
   );

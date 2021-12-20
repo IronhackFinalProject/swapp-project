@@ -1,7 +1,12 @@
-img {
-    width: 80px;
-    margin: 10px;
-    border: none;
+.SearchShortcut{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.searchShortcutsImg{
+    margin: 5px;
+    width: 50px; 
 }
 
 .searchShortcuts-btn{

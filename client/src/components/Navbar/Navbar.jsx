@@ -3,16 +3,23 @@ import { Link } from "react-router-dom";
 import "./Navbar.css";
 import * as PATHS from "../../utils/paths";
 import * as CONSTS from "../../utils/consts";
-import Searchbar from "../Searchbar/Searchbar";
+import logo from "../../images/manitasLogo.png"
+// import Searchbar from "../Searchbar/Searchbar";
 // import Form from './components/Form/Form.jsx';
 
 const Navbar = (props) => {
+
+  function RefreshPage(){
+    window.location.reload(true)
+  }
+
   return (
     <nav>
-      <Link to={PATHS.HOMEPAGE} className="nav__projectName">
-        {CONSTS.CAPITALIZED_APP} {/*- created with IronLauncher */}
+    <button className="homeRefreshBtn" onClick={RefreshPage}><Link to={PATHS.HOMEPAGE} className="nav__projectName"><img className="logo" src={logo} alt="logo" />
+        {/* {CONSTS.CAPITALIZED_APP} - created with IronLauncher */}
       </Link>
-      <Searchbar handleSearch={props.handleSearch} />
+      {/* <Searchbar handleSearch={props.handleSearch} /> */}
+      </button>
 
       <div className="nav__authLinks">
         {/* {console.log(props.user)} */}

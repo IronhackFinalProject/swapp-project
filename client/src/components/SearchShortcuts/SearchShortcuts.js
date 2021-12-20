@@ -33,11 +33,11 @@ const SearchShortcuts = (props) => {
     return (
       <div className="SearchShortcut">
 
-        <button className='searchShortcuts-btn'><img src={SportsIcon} alt="Search Deporte" onClick={() => searchDeporte()} /></button>
-        <button className='searchShortcuts-btn'><img src={TvIcon} alt="Search Tv" onClick={() => searchTV()} /></button>
-        <button className='searchShortcuts-btn'><img src={ModaIcon} alt="Search Moda" onClick={() => searchModa()} /></button>
-        <button className='searchShortcuts-btn'><img src={TelefoniaIcon} alt="Search Telefonía" onClick={() => searchTelefonia()} /></button>
-        <button className='searchShortcuts-btn'><img src={SportsIcon} alt="Search All" onClick={() => searchAll()} /></button>
+        <button className='searchShortcuts-btn'><img className='searchShortcutsImg' src={SportsIcon} alt="Search Deporte" onClick={() => searchDeporte()} /></button>
+        <button className='searchShortcuts-btn'><img className='searchShortcutsImg' src={TvIcon} alt="Search Tv" onClick={() => searchTV()} /></button>
+        <button className='searchShortcuts-btn'><img className='searchShortcutsImg' src={ModaIcon} alt="Search Moda" onClick={() => searchModa()} /></button>
+        <button className='searchShortcuts-btn'><img className='searchShortcutsImg' src={TelefoniaIcon} alt="Search Telefonía" onClick={() => searchTelefonia()} /></button>
+        <button className='searchShortcuts-btn'><img className='searchShortcutsImg' src={SportsIcon} alt="Search All" onClick={() => searchAll()} /></button>
 
       </div>
     );

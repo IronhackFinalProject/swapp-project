@@ -13,7 +13,7 @@ import * as PATHS from "../../utils/paths";
 
 import { DeleteOutlined, TrophyOutlined, VideoCameraOutlined, UserOutlined, AlertOutlined } from "@ant-design/icons";
 import {Avatar} from 'antd'
-import {WhatsappShareButton, WhatsappIcon, TwitterShareButton, TwitterIcon, FacebookIcon, FacebookShareButton} from 'react-share'
+// import {WhatsappShareButton, WhatsappIcon, TwitterShareButton, TwitterIcon, FacebookIcon, FacebookShareButton} from 'react-share'
 
 const Product = (props) => {
   const navigate = useNavigate();
@@ -117,7 +117,7 @@ const Product = (props) => {
         <button className="categoryBtn">Category: {getCategory()}</button>
         <button className="categoryBtn">Interested in: {getInterests()}</button>
         
-        <p>Share this item...</p>
+        {/* <p>Share this item...</p>
         <>
         
         <TwitterShareButton 
@@ -140,7 +140,7 @@ const Product = (props) => {
         </WhatsappShareButton>
 
 
-        </>
+        </> */}
         
         </div>
       </div>

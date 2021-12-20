@@ -1,3 +1,6 @@
+import "./Searchbar.css"
+import { SearchOutlined } from "@ant-design/icons";
+
 const Searchbar = (props) => {
   const handleSearch = props.handleSearch;
   let query;
@@ -12,12 +15,12 @@ const Searchbar = (props) => {
 
   return (
     <div className="Searchbar">
-      <input
+      <input className="searchInput"
         type="text"
         placeholder="Search by category"
         onChange={(event) => updateQuery(event.target.value)}
       ></input>
-      <button onClick={() => search()}>Search</button>
+      <button className="searchBtn" onClick={() => search()}><SearchOutlined /></button>
     </div>
   );
 };

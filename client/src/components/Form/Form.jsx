@@ -105,7 +105,7 @@ const Form = (props)=>{
 
             <button className="uploadItem" onClick={() => {handleSubmit(); notify()}}>Upload your item!</button> {/* se encapsula notify como función dentro del onClick para que llame a las dos funciones al mismo tiempo*/}
 
-            <ToastContainer/> {/* Prueba para TOAST */}
+            <ToastContainer autoClose={3000} /> {/* Prueba para TOAST */}
 
         </div>
     );

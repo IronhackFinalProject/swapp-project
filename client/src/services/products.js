@@ -67,6 +67,15 @@ export function getfavoriteProducts(userId) {
     .catch(internalServerError);
 }
 
+// --------------------- DELETE FAVS TEST -----------------
+// export function deleteFav() {
+//   return productService
+//   .get(`/favorites/${userId}`)
+//   .then()
+// }
+
+
+
 export function getOneProduct(productId) {
   return productService.get(`/getOneProduct/${productId}`)
 }
