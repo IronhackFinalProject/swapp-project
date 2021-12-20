@@ -35,7 +35,7 @@ console.log(props.products)
       {/* <h1>Welcome to swaap</h1> */}
 
       <div>
-      <Searchbar handleSearch={props.handleSearch} />
+      <Searchbar handleSearch={requestProducts} />
       </div>
       <div className="searchShortcuts">
           <SearchShortcuts handleSearch={props.requestProducts} /> 

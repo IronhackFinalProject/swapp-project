@@ -51,3 +51,9 @@ nav {
 .logo{
   width: 50px;
 }
+
+.homeRefreshBtn{
+  border: none;
+  border-radius: 100%;
+  background-color: rgba(245, 245, 245, 0);
+}

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./Navbar.css";
 import * as PATHS from "../../utils/paths";
 import * as CONSTS from "../../utils/consts";
-import logo from "../../images/manitasLogo.png"
+import logo from "../../images/swApp.png"
 // import Searchbar from "../Searchbar/Searchbar";
 // import Form from './components/Form/Form.jsx';
 import { useNavigate } from "react-router-dom";
