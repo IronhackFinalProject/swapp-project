@@ -116,10 +116,14 @@ const Product = (props) => {
         {publishedCity} 
         </h3>
         <h3>
-            {!props.user?.favoritos.includes(_id) 
+            {props.user ?
+              props.user._id === publishedBy ? 
+              !props.user?.favoritos.includes(_id) 
               ? <button className="favBtn" onClick={() => handleFav(_id)}><img src={favIcon} alt="favIcon" className="favIcon"/></button>
               :
-              <button className="favBtn" onClick={() => handleUnfav(_id)}><img src={unFavIcon} alt="favIcon" className="favIcon"/></button>}
+              <button className="favBtn" onClick={() => handleUnfav(_id)}><img src={unFavIcon} alt="favIcon" className="favIcon"/></button>
+            : ""
+            : ""}
         </h3>
 
         {/* <p>{description}</p>

@@ -11,7 +11,7 @@ const Favorites = (props) => {
 
   const getFavorites = async () => {
       const response = await getfavoriteProducts(user._id)
-      setFavorites(response.data.favoritos)  
+      setFavorites(response.data?.favoritos)  
   }
 
   useEffect(()=> { //cuando se monta el componente
@@ -24,7 +24,7 @@ const Favorites = (props) => {
     <div className="App">
       <h2>FAVORITES</h2>
       {favorites.map((product, index) => {
-        return <Product refreshProducts={props.reloadUser} key={index + product._id} user={props.user} product={product} />
+        return <Product refreshProducts={getFavorites} key={index + product._id} user={props.user} product={product} />
       })}
 
     </div>
