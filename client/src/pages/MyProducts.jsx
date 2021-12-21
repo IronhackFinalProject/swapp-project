@@ -1,5 +1,5 @@
 import React from "react";
-import Product from "../components/Product/Product"
+import MyProductCard from "../components/MyProductCard/MyProductCard"
 import { MYPRODUCTS } from "../utils/paths";
 import SearchShortcuts from "../components/SearchShortcuts/SearchShortcuts"
 
@@ -27,7 +27,7 @@ const MyProducts = (props) => {
       </div>
 
       {filteredProducts.map((product, index) => {
-        return <Product key={index + product._id} user={props.user} product={product} />
+        return <MyProductCard key={index + product._id} user={props.user} product={product} />
       })}
 
     </div>

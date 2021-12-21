@@ -39,6 +39,10 @@ const Navbar = (props) => {
               My Profile
             </Link>
 
+            <Link to={PATHS.EDITPROFILE} className="authLink">
+              Edit Profile
+            </Link>
+
             <Link to={PATHS.FAVORITES} className="authLink">
               Favorites
             </Link>

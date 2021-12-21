@@ -1,4 +1,4 @@
-import "../Form/Form.css";
+import "./Form.css";
 import React from 'react';
 import {useState} from 'react'
 import { createProduct } from "../../services/products";
