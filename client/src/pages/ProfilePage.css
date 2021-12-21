@@ -1,0 +1,22 @@
+.avatarProfile{
+    width: 80px;
+    margin-top: 30px;
+}
+
+
+.propsUsername, .propsCity{
+    font-weight: 100;
+}
+
+.itemsOnSwapp{
+    font-size: 21px;
+}
+
+.signedUp{
+    margin-top: 50px;
+}
+
+.signedUpText{
+    font-size: 12px;
+}
+

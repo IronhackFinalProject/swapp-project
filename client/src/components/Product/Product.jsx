@@ -14,7 +14,7 @@ import unFavIcon from "../SearchShortcuts/icons/fav.png"
 
 
 
-import { DeleteOutlined, TrophyOutlined, VideoCameraOutlined, UserOutlined, AlertOutlined } from "@ant-design/icons";
+import { DeleteOutlined, TrophyOutlined, VideoCameraOutlined, UserOutlined, HeartOutlined, HeartTwoTone ,AlertOutlined } from "@ant-design/icons";
 import {Avatar} from 'antd'
 // import {WhatsappShareButton, WhatsappIcon, TwitterShareButton, TwitterIcon, FacebookIcon, FacebookShareButton} from 'react-share'
 
@@ -91,9 +91,8 @@ const Product = (props) => {
 
   return (
     <div className="productWrapper">
-       {/* style={{ border: getBackground() }} */}
+      {/* style={{ border: getBackground() }} */}
       <div className="Product">
-
         {/* {props.user ? 
            props.user._id === publishedBy ? 
            <button className="deleteBtn" onClick={() => handleDelete(_id)}>
@@ -103,28 +102,42 @@ const Product = (props) => {
           
          : "" } */}
 
-        <h5><><Avatar size="large" icon={<UserOutlined />} /></>{publishedName}</h5>
+        <h5>
+          <>
+            <Avatar size="large" icon={<UserOutlined />} />
+          </>
+          {publishedName}
+        </h5>
 
         <Link to={`/product/${_id}`}>
           <img className="productImg" src={picture} alt="ProductPicture" />
         </Link>
 
-        <h3 className="productName">
-        {name} 
-        </h3>
-        <h3 className="productCity">
-        {publishedCity} 
-        </h3>
-        <h3>
-            {props.user ?
-              props.user._id !== publishedBy ? 
-              !props.user?.favoritos.includes(_id) 
-              ? <button className="favBtn" onClick={() => handleFav(_id)}><img src={favIcon} alt="favIcon" className="favIcon"/></button>
-              :
-              <button className="favBtn" onClick={() => handleUnfav(_id)}><img src={unFavIcon} alt="favIcon" className="favIcon"/></button>
-            : ""
-            : ""}
-        </h3>
+        
+        <div>
+          {props.user ? (
+            props.user._id !== publishedBy ? (
+              !props.user?.favoritos.includes(_id) ? (
+                <button className="favBtn" onClick={() => handleFav(_id)}>
+                  <HeartOutlined className="favIcon" />
+                </button>
+              ) : (
+                <button className="favBtn" onClick={() => handleUnfav(_id)}>
+                  <HeartTwoTone twoToneColor="#eb2f96" className="unfavIcon" />
+                </button>
+              )
+            ) : (
+              ""
+            )
+          ) : (
+            ""
+          )}
+        </div>
+
+        <div className="textWrapper">
+          <h3 className="productName">{name}</h3>
+          <p className="productCity">{publishedCity}</p>
+        </div>
 
         {/* <p>{description}</p>
         <button className="categoryBtn">Category: {getCategory()}</button>
@@ -154,7 +167,6 @@ const Product = (props) => {
 
 
         </> */}
-        
       </div>
     </div>
   );
