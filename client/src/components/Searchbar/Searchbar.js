@@ -17,7 +17,7 @@ const Searchbar = (props) => {
     <div className="Searchbar">
       <input className="searchInput"
         type="text"
-        placeholder="Search by category"
+        placeholder="Search..."
         onChange={(event) => updateQuery(event.target.value)}
       ></input>
       <button className="searchBtn" onClick={() => search()}><SearchOutlined /></button>

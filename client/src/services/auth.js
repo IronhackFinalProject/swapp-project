@@ -57,9 +57,13 @@ export function signup(credentials) {
     .catch(internalServerError);
 }
 
-export function editProfile(credentials) {
+export function editProfile(body, userId) {
   return authService
-    .put("/editprofile", credentials)
+    .put(`/${userId}`, body, {
+      headers: {
+        Authorization: USER_HELPERS.getUserToken(),
+      },
+    })
     .then(successStatus)
     .catch(internalServerError);
 }

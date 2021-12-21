@@ -106,7 +106,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
 });
 
 //--------------------------------- EDIT PROFILE -----------------------------------
-router.put("/editprofile/:id", isLoggedIn, (req, res) => {
+router.put("/:id", isLoggedIn, (req, res) => {
   const { username, password, city, name, lastname } = req.body;
 
   if (!username) {
@@ -123,14 +123,14 @@ router.put("/editprofile/:id", isLoggedIn, (req, res) => {
 
   //   ! This use case is using a regular expression to control for special characters and min length
   
-  const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+  // const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
 
-  if (!regex.test(password)) {
-    return res.status(400).json( {
-      errorMessage:
-        "Password needs to have at least 8 chars and must contain at least one number, one lowercase and one uppercase letter.",
-    });
-  }
+  // if (!regex.test(password)) {
+  //   return res.status(400).json( {
+  //     errorMessage:
+  //       "Password needs to have at least 8 chars and must contain at least one number, one lowercase and one uppercase letter.",
+  //   });
+  // }
   
 
   // Search the database for a user with the username submitted in the form
@@ -146,13 +146,14 @@ router.put("/editprofile/:id", isLoggedIn, (req, res) => {
       .then((salt) => bcrypt.hash(password, salt))
       .then((hashedPassword) => {
         // Create a user and save it in the database
-        return User.findByIdAndUpdate(req.user._id, {
+        console.log(req.params.id)
+        return User.findByIdAndUpdate(req.params.id, {
           username,
           name,
           lastname,
           city,
           password: hashedPassword,
-        });
+        }, {new: true});
       })
       // .then((user) => {
       //   Session.create({

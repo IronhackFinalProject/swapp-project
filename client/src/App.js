@@ -11,6 +11,8 @@ import Actionbar from "./components/Actionbar/Actionbar";
 //Components
 import Product from './components/Product/Product.jsx';
 import ProductDetails from './pages/Product';
+import Page404 from './pages/Page404';
+
 
 import Form from './components/Form/Form.jsx';
 import SearchShortcuts from "./components/SearchShortcuts/SearchShortcuts";
@@ -110,7 +112,7 @@ export default function App() {
         <Route path="/deleteproduct" element={<Product/>} />
         <Route path="/product/:productId" element={<ProductDetails/>} />
 
-        <Route path="*" element={<h1>This is a fake 404 ErrorPage</h1>} />
+        <Route path="*" element={<Page404/>} />
       </Routes>
       <Actionbar />
     </div>

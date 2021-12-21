@@ -6,13 +6,13 @@ import * as PATHS from "../utils/paths";
 import * as USER_HELPERS from "../utils/userToken";
 import { PropertySafetyFilled } from "@ant-design/icons";
 
-export default function EditProfile({ authenticate }) {
+export default function EditProfile({ authenticate, user }) {
   const [form, setForm] = useState({
-    username: "",
+    username: user.username,
     password: "",
-    city: "Barcelona",
-    name: "",
-    lastname: "",
+    city: user.city,
+    name: user.name,
+    lastname: user.lastname,
   });
   const { username, password, name, lastname, city } = form;
   const [error, setError] = useState(null);
@@ -25,14 +25,14 @@ export default function EditProfile({ authenticate }) {
 
   function handleFormSubmission(event) {
     event.preventDefault();
-    const credentials = {
+    const body = {
       username,
       password,
       name,
       lastname,
       city
     };
-    editProfile(credentials).then((res) => {
+    editProfile(body, user._id).then((res) => {
       if (!res.status) {
         // unsuccessful EditProfile
         console.error("EditProfile was unsuccessful: ", res);
@@ -43,14 +43,15 @@ export default function EditProfile({ authenticate }) {
       // successful EditProfile
       USER_HELPERS.setUserToken(res.data.accessToken);
       authenticate(res.data.user);
-      navigate(PATHS.HOMEPAGE);
+      navigate(PATHS.PROFILEPAGE);
     });
   }
 
   return (
     <div>
-      <h1>{username}Edit your profile</h1>
+      <h1>{user.username} Edit your profile</h1>
       <form onSubmit={handleFormSubmission} className="auth__form">
+      <h3>Your current username is {user.username} </h3>
       <label htmlFor="input-name">Name</label>
         <input
           id="input-name"

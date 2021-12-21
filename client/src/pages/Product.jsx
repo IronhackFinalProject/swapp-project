@@ -16,7 +16,6 @@ import favIcon from "../components/SearchShortcuts/icons/no_fav.png"
 
 function ProductDetails(props) {
 
-  // const [user, setUser] = useState({}) //estoy intentando las props de user, pero no las del usuario loggeado sinó las de creador del roducto (publishedBy)
   const [product, setProduct] = useState({})
   const { productId } = useParams()
 
