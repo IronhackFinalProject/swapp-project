@@ -152,7 +152,7 @@ const handleUnfav = () => {
           </div>
         </div>
       )}
-      ;
+      
     </div>
   );
 }
