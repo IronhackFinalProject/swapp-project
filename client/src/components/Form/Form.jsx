@@ -103,18 +103,18 @@ const Form = (props)=>{
 
             <p>Category</p>
             <select className="formsInput" name="category" onChange={(event) => setInputCategory(event.target.value)}>
-                <option value="TV, Audio y Foto">TV, Audio y Foto</option>
-                <option value="Deporte y Ocio">Deporte y Ocio</option>
-                <option value="Moda y accesorios">Moda y accesorios</option>
-                <option value="Móviles y Telefonía">Móviles y Telefonía</option>
+                <option value="Tv, Audio & Photo">Tv, Audio & Photo</option>
+                <option value="Sports">Sports</option>
+                <option value="Fashion">Fashion</option>
+                <option value="Smartphones">Smartphones</option>
             </select>
 
             <p>What kind of item are you looking for?</p>
             <select className="formsInput" name="interests" onChange={(event) => setInputInterests(event.target.value)}>
-                <option value="TV, Audio y Foto">TV, Audio y Foto</option>
-                <option value="Deporte y Ocio">Deporte y Ocio</option>
-                <option value="Moda y accesorios">Moda y accesorios</option>
-                <option value="Móviles y Telefonía">Móviles y Telefonía</option>
+                <option value="Tv, Audio & Photo">Tv, Audio & Photo</option>
+                <option value="Sports">Sports</option>
+                <option value="Fashion">Fashion</option>
+                <option value="Smartphones">Smartphones</option>
             </select>
             
             <div className="loadImg">

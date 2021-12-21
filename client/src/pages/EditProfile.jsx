@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { editProfile } from "../services/auth";
 import { useNavigate } from "react-router-dom";
 import "./auth.css";
@@ -33,6 +33,7 @@ export default function EditProfile({ authenticate, user }) {
       city
     };
     editProfile(body, user._id).then((res) => {
+      console.log(user._id)
       if (!res.status) {
         // unsuccessful EditProfile
         console.error("EditProfile was unsuccessful: ", res);
@@ -47,12 +48,15 @@ export default function EditProfile({ authenticate, user }) {
     });
   }
 
+  // useEffect(() => {
+  //   editProfile()
+  // })
+
   return (
     <div>
-      <h1>Hey {user.username}!</h1> 
-      <h2>Edit the field you want, put your password amd click on Submit.</h2>
+      <h1>Hey {user.username}! 📢</h1> 
+      <h2>🛠 Edit the field you want, put your password amd click on Submit 🛠</h2>
       <form onSubmit={handleFormSubmission} className="auth__form">
-      <h3>Your current username is {user.username} </h3>
       <label htmlFor="input-name">Name</label>
         <input
           className="formsInput"
