@@ -21,9 +21,8 @@ function ProfilePage(props) {
         
         <div className="backCard">
         <h2>
-          Welcome {props.user.name} {props.user.lastname}
+          Welcome to your profile page, {props.user.name} {props.user.lastname}.
         </h2>
-      
 
       <div className="usernameText">
         <h4>
@@ -32,13 +31,13 @@ function ProfilePage(props) {
       </div>
 
       <div className="locationText">
-        <h4>
+        <h3>
           Location: <span className="propsCity">{props.user.city}</span>
-        </h4>
+        </h3>
 
         <div>
           <h4>
-            {props.user.username} items uploaded: {props.user.products.length}{" "}
+            Uploaded items: {props.user.products.length}
           </h4>
         </div>
 
@@ -48,13 +47,13 @@ function ProfilePage(props) {
 
         <div>
           <p className="itemsOnSwapp">
-            Items available on Swapp: {props.products.length}{" "}
+            Current items available on Swapp: {props.products.length}
           </p>
         </div>
 
         <div className="signedUp">
           <p className="signedUpText">
-            You signed up since {props.user.createdAt}
+            You are signed up since {props.user.createdAt.slice(0, 10)} at {props.user.createdAt.slice(11, 16)}
           </p>
         </div>
         </div>

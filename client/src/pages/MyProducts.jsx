@@ -20,7 +20,8 @@ const MyProducts = (props) => {
   return (
     
     <div>
-      <h2>These are your products...</h2>
+      <h1>These are your products...</h1>
+      <h2>You can even sort them by category</h2>
 
       <div className="searchShortcuts">
           <SearchShortcuts handleSearch={props.requestProducts} /> 

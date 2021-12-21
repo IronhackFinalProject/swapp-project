@@ -84,25 +84,25 @@ const Form = (props)=>{
 
             <div className="formProduct">
             <p>Your item: </p>
-            <input type="text" name="name" onFocus={handleFocus} placeholder="Item name" maxLength={20} onChange={(event) => setInputProduct(event.target.value)}></input>
+            <input className="formsInput" type="text" name="name" onFocus={handleFocus} placeholder="Item name" maxLength={20} onChange={(event) => setInputProduct(event.target.value)}></input>
             {err.name && <span>{err.name.message}</span>}
             </div>
 
             <p>Description</p>
-            <textarea type="text" name="description" onFocus={handleFocus} style={{"height" : "100px", "width" : "200px"}} placeholder="Be concise, you just have 100 characters" maxLength={100} onChange={(event) => setinputDesciption(event.target.value)}></textarea>
+            <textarea className="formsInput" type="text" name="description" onFocus={handleFocus} style={{"height" : "100px", "width" : "200px"}} placeholder="Be concise, you just have 100 characters" maxLength={100} onChange={(event) => setinputDesciption(event.target.value)}></textarea>
             {err.description && <span>{err.description.message}</span>}
 
 
             <p>Condition</p>
-            <select name="condition" onChange={(event) => setInputCondition(event.target.value)}>
-                <option value="New">New</option>
-                <option value="Good">Good</option>
-                <option value="Correct">Correct</option>
-                <option value="Bad">Bad</option>
+            <select className="formsInput" name="condition" onChange={(event) => setInputCondition(event.target.value)}>
+                <option className="formsInput" value="New">New</option>
+                <option className="formsInput" value="Good">Good</option>
+                <option className="formsInput" value="Correct">Correct</option>
+                <option className="formsInput" value="Bad">Bad</option>
             </select>
 
             <p>Category</p>
-            <select name="category" onChange={(event) => setInputCategory(event.target.value)}>
+            <select className="formsInput" name="category" onChange={(event) => setInputCategory(event.target.value)}>
                 <option value="TV, Audio y Foto">TV, Audio y Foto</option>
                 <option value="Deporte y Ocio">Deporte y Ocio</option>
                 <option value="Moda y accesorios">Moda y accesorios</option>
@@ -110,7 +110,7 @@ const Form = (props)=>{
             </select>
 
             <p>What kind of item are you looking for?</p>
-            <select name="interests" onChange={(event) => setInputInterests(event.target.value)}>
+            <select className="formsInput" name="interests" onChange={(event) => setInputInterests(event.target.value)}>
                 <option value="TV, Audio y Foto">TV, Audio y Foto</option>
                 <option value="Deporte y Ocio">Deporte y Ocio</option>
                 <option value="Moda y accesorios">Moda y accesorios</option>
@@ -119,7 +119,7 @@ const Form = (props)=>{
             
             <div className="loadImg">
             <p>Upload the image of your item</p>
-            <input type="file" 
+            <input className="formsInput" type="file" 
             onChange={(event) => {
                 setImageSelected(event.target.files[0])
             }} /> 

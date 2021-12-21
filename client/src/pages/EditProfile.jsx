@@ -49,11 +49,13 @@ export default function EditProfile({ authenticate, user }) {
 
   return (
     <div>
-      <h1>{user.username} Edit your profile</h1>
+      <h1>Hey {user.username}!</h1> 
+      <h2>Edit the field you want, put your password amd click on Submit.</h2>
       <form onSubmit={handleFormSubmission} className="auth__form">
       <h3>Your current username is {user.username} </h3>
       <label htmlFor="input-name">Name</label>
         <input
+          className="formsInput"
           id="input-name"
           type="text"
           name="name"
@@ -65,6 +67,7 @@ export default function EditProfile({ authenticate, user }) {
 
       <label htmlFor="input-lastname">Last Name</label>
         <input
+          className="formsInput"
           id="input-lastname"
           type="text"
           name="lastname"
@@ -76,6 +79,7 @@ export default function EditProfile({ authenticate, user }) {
 
       <label htmlFor="input-city">City</label>
         <select
+          className="formsInput"
           id="input-city"
           type="text"
           name="city"
@@ -91,6 +95,7 @@ export default function EditProfile({ authenticate, user }) {
 
         <label htmlFor="input-username">Username</label>
         <input
+          className="formsInput"
           id="input-username"
           type="text"
           name="username"
@@ -102,10 +107,11 @@ export default function EditProfile({ authenticate, user }) {
 
         <label htmlFor="input-password">Password</label>
         <input
+          className="formsInput"
           id="input-password"
           type="password"
           name="password"
-          placeholder="Ssshhhhht that's a secret!"
+          placeholder="Sshhhht that's a secret!"
           value={password}
           onChange={handleInputChange}
           required

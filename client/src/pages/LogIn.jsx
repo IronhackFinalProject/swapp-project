@@ -42,6 +42,7 @@ export default function LogIn({ authenticate }) {
       <form onSubmit={handleFormSubmission} className="signup__form">
         <label htmlFor="input-username">Username</label>
         <input
+          className="formsInput"
           id="input-username"
           type="text"
           name="username"
@@ -53,6 +54,7 @@ export default function LogIn({ authenticate }) {
 
         <label htmlFor="input-password">Password</label>
         <input
+          className="formsInput"
           id="input-password"
           type="password"
           name="password"
