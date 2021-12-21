@@ -31,7 +31,7 @@ nav {
 
 .nav-logoutbtn {
   font-family: inherit;
-  font-weight: inherit;
+  font-weight: 600;
   padding: 0.5em 1em;
   margin-left: 1em;
   background-color: #6667ab;
@@ -47,7 +47,7 @@ nav {
 
 .nav-logoutbtn:hover {
   transform: scale(1.05);
-  background-color: rgb(138, 87, 78);
+  background-color: #5a1c03;
 }
 
 .logo{
