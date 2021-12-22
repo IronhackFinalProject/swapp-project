@@ -1,7 +1,7 @@
 import "../App.css";
 // import HomeProducts from '../components/HomeProducts/HomeProducts'
 import Product from '../components/Product/Product'
-import Searchbar from "../components/Searchbar/Searchbar";
+
 import SearchShortcuts from "../components/SearchShortcuts/SearchShortcuts"
 import "./HomePage.css"
 import Hero from "../images/shakeHero.jpg"
@@ -34,9 +34,7 @@ console.log(props.products)
     <img className="Hero" src={Hero} alt="Heroimg" />
       {/* <h1>Welcome to swaap</h1> */}
 
-      <div>
-      <Searchbar handleSearch={requestProducts} />
-      </div>
+      
       <div className="searchShortcuts">
           <SearchShortcuts handleSearch={requestProducts} /> 
       </div>
