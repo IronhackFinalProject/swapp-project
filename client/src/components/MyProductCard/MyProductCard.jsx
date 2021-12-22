@@ -69,9 +69,10 @@ const Product = (props) => {
 // const [products, setProducts] = useState([])
 
   const handleDelete = () => {
-     deleteProduct (_id, props.refreshProducts)
+     deleteProduct (_id); 
+     props.refreshProducts()
     //  reloadUser()
-    //  navigate(PATHS.HOMEPAGE)
+     navigate(PATHS.MYPRODUCTS)
   }
 
   // useEffect(()=> { 

@@ -12,7 +12,7 @@ function Page404({}) {
 
 
 
-      <a href="/" target="_blank">
+      <a href="/">
   <header className="top-header">
 </header>
 

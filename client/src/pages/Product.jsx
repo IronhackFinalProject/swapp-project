@@ -76,7 +76,8 @@ const getInterests = () => {
           </div>
           
           <div className="card-body">
-            <h2>{product.name}</h2>
+          <div className="titleDetailChatBtnWrapper">
+            <h2 className="titleDetailsProduct">{product.name}</h2>
             <>
             <Link to={PATHS.CHATPROFILE} className="nav__projectName">
               <button className="btnChat">
@@ -84,8 +85,9 @@ const getInterests = () => {
                  Chat
               </button></Link>
             </>
+            </div>
 
-            <p>{product.publishedBy.city}</p>
+            <p className="cityDetailsProduct">{product.publishedBy.city}</p>
             <h3>
               {/* {props.user._id === product.publishedBy ? (
                   !props.user?.favoritos.includes(product._id) ? (

@@ -4,9 +4,21 @@
   align-items: center;
 }
 
+.titleDetailsProduct{
+  font-size: 36px;
+}
 
+.cityDetailsProduct{
+  font-size: 36px;
+  font-weight: 700;
+  color: #6667ab;
+}
 
-
+.titleDetailChatBtnWrapper{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
 
 .card {
     margin-top: 10px;
@@ -75,15 +87,14 @@ color: #545d7a;
 }
 
 .btnChat{
-  position: absolute;
-  margin-left: 375px;
-  margin-top: -40px;
+  position: relative;
+  margin-top: 20px;
   cursor: pointer;
   color: whitesmoke;
   font-weight: 700;
   border: none;
   background-color: #6667ab;
-  padding: 15px;
+  padding: 10px 15px;
   clip-path: polygon(
         0% 18%,
         18% 0,

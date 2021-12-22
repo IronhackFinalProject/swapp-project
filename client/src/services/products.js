@@ -42,7 +42,7 @@ export function createProduct(product) {
   export function deleteProduct(id) {
     return productService
       .delete(`/${id}`)
-      .then(successStatus)
+      .then() //borrado SuccessStatus
       .catch(internalServerError);
   }
 
