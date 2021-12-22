@@ -35,27 +35,27 @@ const SearchShortcuts = (props) => {
       <div className="SearchShortcut">
         <div>
           <button className='searchShortcuts-btn'><img className='searchShortcutsImg' src={AllIcon} alt="Search All" onClick={() => searchAll()} /></button>
-          <p>All</p>
+          <p className='textShortcuts'>All</p>
         </div>
 
         <div>
           <button className='searchShortcuts-btn'><img className='searchShortcutsImg' src={SportsIcon} alt="Search Deporte" onClick={() => searchDeporte()} /></button>
-          <p>Sports</p>
+          <p className='textShortcuts'>Sports</p>
         </div>
 
         <div>
           <button className='searchShortcuts-btn'><img className='searchShortcutsImg' src={TvIcon} alt="Search Tv" onClick={() => searchTV()} /></button>
-          <p>Tv, Audio & Photo</p>
+          <p className='textShortcuts'>Tv, Audio & Photo</p>
         </div>
 
         <div>
           <button className='searchShortcuts-btn'><img className='searchShortcutsImg' src={ModaIcon} alt="Search Moda" onClick={() => searchModa()} /></button>
-          <p>Fashion</p>
+          <p className='textShortcuts'>Fashion</p>
         </div>
 
         <div>
         <button className='searchShortcuts-btn'><img className='searchShortcutsImg' src={TelefoniaIcon} alt="Search Telefonía" onClick={() => searchTelefonia()} /></button>
-        <p>Smartphones</p>
+        <p className='textShortcuts'>Smartphones</p>
         </div>
 
       </div>

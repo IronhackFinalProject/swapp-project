@@ -20,3 +20,33 @@
     font-size: 12px;
 }
 
+.profileBtnsWrapper{
+    display: flex;
+    justify-content: center;
+}
+
+.editIcon {
+    margin-left: 5px;
+}
+
+.logOutBtn {
+    padding: 10px;
+    margin-right: 15px;
+    cursor: pointer;
+  color: whitesmoke;
+  font-weight: 700;
+    border: none;
+  background-color: #6667ab;
+    clip-path: polygon(
+        0% 18%,
+        18% 0,
+        100% 0,
+        100% 0%,
+        100% 0%,
+        100% 100%,
+        0% 100%,
+        0% 100%,
+        0% 0%
+      );
+}
+

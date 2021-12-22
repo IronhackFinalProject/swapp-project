@@ -1,6 +1,5 @@
 .SearchShortcut{
     width: 100%;
-    max-width: 600px;
     display: flex;
     justify-content: space-around;
 }
@@ -13,4 +12,10 @@
 
 .searchShortcuts-btn{
     border: none;
+}
+
+.textShortcuts{
+    margin-top: -6px;
+    font-weight: 500;
+    color: #6667ab;
 }
