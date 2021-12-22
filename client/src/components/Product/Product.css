@@ -166,7 +166,7 @@ transition: opacity 0.3s ease-in-out;
 .uploadItem{
     padding:10px;
     border-radius: 5px;
-    background-color: green;
+    background-color: #6667AB;
     color: white;
     font-weight: bold;
     border-width: 1px;
@@ -177,9 +177,9 @@ transition: opacity 0.3s ease-in-out;
 }
 
 .uploadItem:hover{
-    border-color: green;
-    background-color: white;
-    color: green;
+    border-color: #5a1c03;
+    background-color: #5a1c03;
+    color: white;
     -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0); 
     box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
 }
