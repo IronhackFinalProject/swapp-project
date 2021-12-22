@@ -7,6 +7,8 @@ import "./HomePage.css"
 import Hero from "../images/shakeHero.jpg"
 import { useCallback, useEffect, useState } from "react";
 import { getProducts } from "../services/products";
+import Searchbar from "../components/Searchbar/Searchbar";
+
 
 
 function HomePage(props) {
@@ -17,7 +19,6 @@ function HomePage(props) {
   const requestProducts = useCallback((query) => {
     getProducts(query).then((res) => {
       setProducts(res.data.products);
-      console.log(res.data.products)
     });
   }, [])
 
@@ -27,7 +28,7 @@ function HomePage(props) {
 
 
 
-console.log(props.products)
+
   return (
     <div className="App">
 
@@ -37,6 +38,7 @@ console.log(props.products)
       
       <div className="searchShortcuts">
           <SearchShortcuts handleSearch={requestProducts} /> 
+          <Searchbar handleSearch={requestProducts} />
       </div>
 
       {products.map((product, index) => {

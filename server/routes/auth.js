@@ -31,7 +31,8 @@ router.get("/session", (req, res) => {
         return res.status(404).json({ errorMessage: "Session does not exist" });
       }
       return res.status(200).json(session);
-    });
+    })
+    .catch(err => res.status(500).json({errorMessage: 'Érror creating session', err}))
 });
 
 router.post("/signup", isLoggedOut, (req, res) => {
@@ -155,6 +156,7 @@ router.put("/:id", isLoggedIn, (req, res) => {
           password: hashedPassword,
         }, {new: true});
       })
+      .then(user  => res.json(user))
       // .then((user) => {
       //   Session.create({
       //     user: user._id,

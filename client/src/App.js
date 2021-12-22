@@ -44,7 +44,6 @@ export default function App() {
       }
   
       setUser(res.data.user);
-      console.log(res.data.user.favoritos)
       requestProducts()
       setIsLoading(false);
     });
@@ -64,7 +63,8 @@ export default function App() {
       }
       setUser(res.data.user);
       setIsLoading(false);
-    });
+    })
+    // .catch(()=>  setIsLoading(false));
 
     requestProducts();
   }, [requestProducts]);

@@ -31,7 +31,7 @@ export default function LogIn({ authenticate }) {
         return setError({ message: "Invalid credentials" });
       }
       USER_HELPERS.setUserToken(res.data.accessToken);
-      authenticate(res.data.user);
+      authenticate(res.data);
       navigate(PATHS.PROFILEPAGE);
     });
   }

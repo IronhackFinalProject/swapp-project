@@ -7,13 +7,43 @@ import Actionbar from "./../components/Actionbar/Actionbar"
 import "./ProfilePage.css"
 import * as PATHS from "../utils/paths";
 import { Link } from "react-router-dom";
-
+import { useEffect, useState} from 'react'
+ 
 function ProfilePage(props) {
+
+
   //  console.log(props.products)
-  const filteredProducts = props.products.filter((product) => {
-    return product.publishedBy === props.user._id;
-  });
-  console.log(filteredProducts);
+  // const filteredProducts = props.products.filter((product) => {
+  //   return product.publishedBy === props.user._id;
+  // });
+  // console.log(filteredProducts);
+
+  const [user, setUser] = useState({
+    name: '',
+    lastname: '',
+    city: '',
+    userProducts: [],
+    username: '',
+    favoritos: [],
+    createdAt: ''
+  })
+
+  const {name, lastname, city, userProducts, username, favoritos, createdAt} = user
+
+  useEffect(() => {
+
+    setUser({
+      name: props.user.user ? props.user.user.name : props.user.name,
+      lastname: props.user.user ? props.user.user.lastname : props.user.lastname,
+      city: props.user.user ? props.user.user.city : props.user.city,
+      userProducts: props.user.user ? props.user.user.products : props.user.products,
+      username: props.user.user ? props.user.user.username : props.user.username,
+      favoritos: props.user.user ? props.user.user.favoritos : props.user.favoritos,
+      createdAt: props.user.user ? props.user.user.createdAt : props.user.createdAt
+    })
+  }, [])
+
+ 
 
   return (
     <div className="App">
@@ -23,27 +53,27 @@ function ProfilePage(props) {
 
       <div className="backCard">
         <h2>
-          Welcome to your profile page, {props.user.name} {props.user.lastname}.
+          Welcome to your profile page, {name} {lastname}.
         </h2>
 
         <div className="usernameText">
           <h4>
             Username:{" "}
-            <span className="propsUsername">{props.user.username}</span>
+            <span className="propsUsername">{username}</span>
           </h4>
         </div>
 
         <div className="locationText">
           <h3>
-            Location: <span className="propsCity">{props.user.city}</span>
+            Location: <span className="propsCity">{city}</span>
           </h3>
 
           <div>
-            <h4>Uploaded items: {props.user.products.length}</h4>
+            <h4>Uploaded items: {userProducts?.length}</h4>
           </div>
 
           <div>
-            <h4>Favorite items to Swapp: {props.user.favoritos.length} </h4>
+            <h4>Favorite items to Swapp: {favoritos?.length} </h4> 
           </div>
 
           <div>
@@ -54,8 +84,8 @@ function ProfilePage(props) {
 
           <div className="signedUp">
             <p className="signedUpText">
-              You are signed up since {props.user.createdAt.slice(0, 10)} at{" "}
-              {props.user.createdAt.slice(11, 16)}
+              You are signed up since {createdAt.slice(0, 10)} at{" "}
+              {createdAt.slice(11, 16)}
             </p>
           </div>
         </div>

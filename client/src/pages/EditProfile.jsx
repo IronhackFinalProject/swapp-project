@@ -8,15 +8,25 @@ import { PropertySafetyFilled } from "@ant-design/icons";
 
 export default function EditProfile({ authenticate, user }) {
   const [form, setForm] = useState({
-    username: user.username,
+    username:'',
     password: "",
-    city: user.city,
-    name: user.name,
-    lastname: user.lastname,
+    city: '',
+    name:'',
+    lastname:'',
   });
   const { username, password, name, lastname, city } = form;
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+
+  useEffect(()=>{
+    setForm({
+      username: user.username,
+      password: "",
+      city: user.city,
+      name: user.name,
+      lastname: user.lastname,
+    })
+  }, [])
 
   function handleInputChange(event) {
     const { name, value } = event.target;
@@ -32,8 +42,8 @@ export default function EditProfile({ authenticate, user }) {
       lastname,
       city
     };
+    
     editProfile(body, user._id).then((res) => {
-      console.log(user._id)
       if (!res.status) {
         // unsuccessful EditProfile
         console.error("EditProfile was unsuccessful: ", res);
@@ -42,20 +52,12 @@ export default function EditProfile({ authenticate, user }) {
         });
       }
       // successful EditProfile
-      USER_HELPERS.setUserToken(res.data.accessToken);
-      authenticate(res.data.user);
+      console.log('´PERFIL ACTUALIZADO')
+      // USER_HELPERS.setUserToken(res.data.accessToken);
+      authenticate(res.data);
       navigate(PATHS.PROFILEPAGE);
     });
   }
-
-  // useEffect(() => {
-  //   console.log("Soy un useEffect")
-  //   editProfile()
-  // }, [setForm])
-
-  // useEffect(() => {
-  //   editProfile(user)
-  // }, [user])
 
   return (
     <div>
