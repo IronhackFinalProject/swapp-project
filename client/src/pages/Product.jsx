@@ -10,6 +10,8 @@ import unFavIcon from "../components/SearchShortcuts/icons/fav.png"
 import { favProduct } from "../services/products";
 import favIcon from "../components/SearchShortcuts/icons/no_fav.png"
 import * as PATHS from "../utils/paths";
+import { DeleteOutlined, TrophyOutlined, VideoCameraOutlined, UserOutlined, AlertOutlined } from "@ant-design/icons";
+
 
 // import { ProductDetailsCard } from "../components/ProductDetails/ProductDetails"
 
@@ -43,6 +45,22 @@ const handleUnfav = () => {
   deleteFav (product._id,  props.refreshProducts, props.reloadUser)
 }
 
+
+const getInterests = () => {
+  if (product.interests === "TV, Audio y Foto") {
+    return <><VideoCameraOutlined/></>;
+  } else if (product.interests === "Deporte y Ocio") {
+    return "🤸‍♂️";
+  } else if (product.interests === "Moda y accesorios") {
+    return "👕";
+  } else if (product.interests === "Móviles y Telefonía") {
+    return "📱";
+  } else {
+    return "";
+  }
+};
+
+
   return (
     <div className="productDetails-container">
       {loading ? (
@@ -69,8 +87,7 @@ const handleUnfav = () => {
 
             <p>{product.publishedBy.city}</p>
             <h3>
-              {props.user ? (
-                props.user._id === product.publishedBy ? (
+              {/* {props.user._id === product.publishedBy ? (
                   !props.user?.favoritos.includes(product._id) ? (
                     <button
                       className="favBtn"
@@ -85,13 +102,8 @@ const handleUnfav = () => {
                     >
                       <img src={unFavIcon} alt="favIcon" className="favIcon" />
                     </button>
-                  )
-                ) : (
-                  ""
-                )
-              ) : (
-                ""
-              )}
+                  ))
+                 : ""} */}
             </h3>
             <div>
               <p>
@@ -107,7 +119,7 @@ const handleUnfav = () => {
             </p>
             <p>
               {product.publishedBy.username} is interested in swapping this
-              product for an item of the category {product.interests}
+              product for an item of the category {product.interests} {getInterests()}
             </p>
             <div class="user">
               <p>
