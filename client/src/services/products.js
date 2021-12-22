@@ -95,6 +95,19 @@ export function getfavoriteProducts(userId) {
     .catch(internalServerError);
 }
 
+export function getMyProductsDB(userId) {
+  return productService
+    .get(`/${userId}`, {
+      headers: {
+        Authorization: USER_HELPERS.getUserToken(),
+      }
+    })
+    .then(successStatus)
+    .catch(internalServerError);
+}
+
+
+
 // --------------------- DELETE FAVS TEST -----------------
 // export function deleteFav() {
 //   return productService

@@ -2,20 +2,33 @@ import React from "react";
 import MyProductCard from "../components/MyProductCard/MyProductCard"
 import { MYPRODUCTS } from "../utils/paths";
 import SearchShortcuts from "../components/SearchShortcuts/SearchShortcuts"
+import {useState, useEffect} from 'react'
+import {getMyProductsDB} from '../services/products'
+
+
 
 
 
 const MyProducts = (props) => {
 
-  // useEffect(() => {
-  //   CREAR ESTADO MYPRODUCTSLLAMADA AXIOS A bd
-  //   RESPONSE SALEN PRODUCTOS=SETMYPRODUCTS
-  // }, []);
+  // const filteredProducts = props.products.filter((product) => {
+  //   return product.publishedBy === props.user._id
+  //   }
+  // )
 
-  const filteredProducts = props.products.filter((product) => {
-    return product.publishedBy === props.user._id
-    }
-  )
+
+  const [myProducts, setMyProducts] = useState([])
+  const {user} = props
+
+  const getMyProducts = async () => {
+    const response = await getMyProductsDB(user._id)
+      setMyProducts(response.data?.products)
+      }
+
+  useEffect(() => {
+    getMyProducts()
+  }, [])
+  
 
   return (
     
@@ -27,8 +40,8 @@ const MyProducts = (props) => {
           <SearchShortcuts handleSearch={props.requestProducts} /> 
       </div>
 
-      {filteredProducts.map((product, index) => {
-        return <MyProductCard key={index + product._id} user={props.user} product={product} />
+      {myProducts.map((product, index) => {
+        return <MyProductCard refreshProducts={getMyProducts} key={index + product._id} user={props.user} product={product} />
       })}
 
     </div>

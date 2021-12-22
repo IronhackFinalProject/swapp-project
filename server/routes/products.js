@@ -35,6 +35,18 @@ const {name, description, category, interests, picture, publishedBy, publishedNa
 });
 
 
+//------------get MyProduct-----------------------------------
+router.get("/:id", isLoggedIn, async (req, res) => {
+  console.log(req.params)
+  try{
+    const userFromDB = await User.findById(req.params.id).populate("products")
+    res.status(200).json({products: userFromDB.products})
+  }catch(err){
+    console.log(err.message)
+  }
+})
+
+
 //---------- MODIFY PRODUCT -----------------------------( WORK IN PROGRESS )-----------------------------------------------------------------------------------
 // router.patch("/update/:id_product", isLoggedIn, async (req, res) => { 
 

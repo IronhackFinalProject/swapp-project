@@ -1,13 +1,14 @@
 import "../Product/Product.css";
 import React from 'react';
 // import { setUserToken } from "../../utils/userToken";
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import { deleteProduct } from "../../services/products";
 import { favProduct } from "../../services/products";
 import favIcon from "../SearchShortcuts/icons/no_fav.png"
 import { useNavigate, Link } from "react-router-dom";
 import * as PATHS from "../../utils/paths";
 import { deleteFav } from "../../services/products";
+import { reloadUser } from "../../App.js"
 import unFavIcon from "../SearchShortcuts/icons/fav.png"
 
 
@@ -65,11 +66,18 @@ const Product = (props) => {
     }
   };
 
+// const [products, setProducts] = useState([])
 
   const handleDelete = () => {
      deleteProduct (_id, props.refreshProducts)
+    //  reloadUser()
     //  navigate(PATHS.HOMEPAGE)
   }
+
+  // useEffect(()=> { 
+  //   handleDelete()
+  // },[])
+
 
   const handleFav = () => {
     favProduct (_id,  props.refreshProducts)
