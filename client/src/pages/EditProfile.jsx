@@ -49,8 +49,13 @@ export default function EditProfile({ authenticate, user }) {
   }
 
   // useEffect(() => {
+  //   console.log("Soy un useEffect")
   //   editProfile()
-  // })
+  // }, [setForm])
+
+  // useEffect(() => {
+  //   editProfile(user)
+  // }, [user])
 
   return (
     <div>
