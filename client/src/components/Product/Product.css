@@ -185,11 +185,26 @@ transition: opacity 0.3s ease-in-out;
 }
 
 /* CSS Media query para product cards en Mobile */
-
-@media (max-width:375px){
+@media (max-width:480px){
     .Product{
-        width: 225px;
-        margin: 5px;
+        width: 220px;
+        margin: 6px;
+    }
+
+    .favIcon, .unfavIcon{
+        margin-left: 70px;
     }
 }
 
+
+
+@media (max-width:576px){
+    .Product{
+        width: 190px;
+        margin: 2px;
+    }
+
+    .favIcon, .unfavIcon{
+        margin-left: 70px;
+    }
+}

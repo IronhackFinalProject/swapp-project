@@ -123,4 +123,5 @@ color: #545d7a;
 .TwitterShare, .FacebookShare, .WhatsappShare{
   margin-top: -15px;
   margin-right: 10px;
+  margin-bottom: 0px;
 }

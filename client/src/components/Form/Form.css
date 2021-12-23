@@ -1,0 +1,45 @@
+.formProduct{
+    margin-top: -20px;
+}
+
+.yourItem{
+    display: block;
+    justify-content: center;
+}
+
+.descriptionItem{
+    margin-top: -20px;
+}
+
+.conditionItem{
+    margin-top: -20px;
+}
+
+.loadImg{
+    margin-top: -10px;
+    margin-bottom: -10px;
+}
+
+.uploadItem{
+    margin-top: 10px;
+    clip-path: polygon(
+        0% 28%,
+        18% 0,
+        100% 0,
+        100% 0%,
+        100% 0%,
+        100% 100%,
+        0% 100%,
+        0% 100%,
+        0% 0%
+      );
+
+    border: none;
+    border-radius: 0px;
+}
+
+.uploadItem:hover{
+    background-color: #e3e4ff;
+    color: #6667ab;
+}
+

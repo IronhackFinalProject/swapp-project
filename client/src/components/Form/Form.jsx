@@ -83,16 +83,23 @@ const Form = (props)=>{
             <h1>Upload your items</h1>
 
             <div className="formProduct">
+            <div className="yourItem">
             <p>Your item: </p>
             <input className="formsInput" type="text" name="name" onFocus={handleFocus} placeholder="Item name" maxLength={20} onChange={(event) => setInputProduct(event.target.value)}></input>
             {err.name && <span>{err.name.message}</span>}
             </div>
+            </div>
 
+            
+
+<div className="descriptionItem">
             <p>Description</p>
             <textarea className="formsInput" type="text" name="description" onFocus={handleFocus} style={{"height" : "100px", "width" : "200px"}} placeholder="Be concise, you just have 100 characters" maxLength={100} onChange={(event) => setinputDesciption(event.target.value)}></textarea>
             {err.description && <span>{err.description.message}</span>}
+</div>
 
 
+<div className="conditionItem">
             <p>Condition</p>
             <select className="formsInput" name="condition" onChange={(event) => setInputCondition(event.target.value)}>
                 <option className="formsInput" value="New">New</option>
@@ -100,6 +107,7 @@ const Form = (props)=>{
                 <option className="formsInput" value="Correct">Correct</option>
                 <option className="formsInput" value="Bad">Bad</option>
             </select>
+</div>
 
             <p>Category</p>
             <select className="formsInput" name="category" onChange={(event) => setInputCategory(event.target.value)}>
