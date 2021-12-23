@@ -1,15 +1,22 @@
 .avatarProfile{
-    width: 80px;
+    width: 120px;
     margin-top: 30px;
 }
 
-
-.propsUsername, .propsCity{
-    font-weight: 100;
+.backCard {
+    font-family: 'Comfortaa';
+    font-weight: 700;
+    /* max-width: 420px; */
+    /* display: flex; */
+    /* justify-content: center;
+    align-items: left;
+    text-align: left; */
 }
 
 .itemsOnSwapp{
     font-size: 21px;
+    padding-top: 20px;
+    margin: 0px 15px;
 }
 
 .signedUp{
