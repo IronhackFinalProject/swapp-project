@@ -1,6 +1,6 @@
 nav {
   display: flex;
-  padding: 10px 120px;
+  padding: 10px 50px;
   justify-content: space-between;
   flex-wrap: wrap;
   background: #e3e4ff;
@@ -9,7 +9,8 @@ nav {
 }
 
 .logoWrapper {
-  display: -ms-inline-flexbox;
+  display: flex;
+  align-items: center;
 }
 
 .homeRefreshBtn{
@@ -22,7 +23,7 @@ nav {
   font-family: 'Comfortaa';
   color: #6667ab;
   font-weight: 700;
-  margin: -5px;
+  font-size: 24px;
 }
 
 .nav__projectName {
@@ -31,11 +32,16 @@ nav {
 }
 
 .authLink {
-  font-family: 'Ubuntu', sans-serif;
-  font-weight: 600;
+  font-family: 'Comfortaa', sans-serif;
+  margin-top: 8px;
+  font-weight: 300;
+  font-size: 14px;
   color: #6667ab;
   text-decoration: none;
   transition: color 0.2s ease-in-out;
+  display: inline-flex;
+  align-items: baseline;
+  
 }
 
 .authLink + .authLink {
