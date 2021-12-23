@@ -1,11 +1,21 @@
 nav {
   display: flex;
-  padding: 10px;
+  padding: 10px 120px;
   justify-content: space-between;
   flex-wrap: wrap;
   background: #e3e4ff;
   font-weight: 300;
   
+}
+
+.logoWrapper {
+  display: -ms-inline-flexbox;
+}
+
+.homeRefreshBtn{
+  border: none;
+  border-radius: 100%;
+  background-color: rgba(245, 245, 245, 0);
 }
 
 .logoText {
@@ -61,11 +71,7 @@ nav {
   width: 50px;
 }
 
-.homeRefreshBtn{
-  border: none;
-  border-radius: 100%;
-  background-color: rgba(245, 245, 245, 0);
-}
+
 
 @media (max-width:769px){
   .authLink{

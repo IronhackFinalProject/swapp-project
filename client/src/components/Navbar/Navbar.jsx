@@ -13,7 +13,7 @@ const Navbar = (props) => {
 
   return (
     <nav>
-      <div>
+      <div className="logoWrapper">
         <button className="homeRefreshBtn" onClick={RefreshPage}><Link to={PATHS.HOMEPAGE} className="nav__projectName"><img className="logo" src={logo} alt="logo" />
           {/* {CONSTS.CAPITALIZED_APP} - created with IronLauncher */}
         </Link>

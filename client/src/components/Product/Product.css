@@ -111,13 +111,13 @@ transition: opacity 0.3s ease-in-out;
 
 .deleteBtn{
     position: absolute;
-    margin-top: 0px;
-    margin-left: 100px;
-    background-color: rgb(243, 60, 60);
+    margin-top: 5px;
+    margin-left: 90px;
+    background-color:  #6667AB;
     color: white;
     border-style: solid;
     border-width: 2px;
-    border-color: white;
+    border-color: #6667AB;
     border-radius: 5px;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -128,7 +128,7 @@ transition: opacity 0.3s ease-in-out;
 
 .deleteBtn:hover{
     border-color:rgb(243, 60, 60) ;
-    background-color: white;
+    background-color: #6667AB;
     color: rgb(243, 60, 60);
     -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0); 
     box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
