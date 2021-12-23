@@ -13,11 +13,14 @@ const Navbar = (props) => {
 
   return (
     <nav>
-    <button className="homeRefreshBtn" onClick={RefreshPage}><Link to={PATHS.HOMEPAGE} className="nav__projectName"><img className="logo" src={logo} alt="logo" />
-        {/* {CONSTS.CAPITALIZED_APP} - created with IronLauncher */}
-      </Link>
-      {/* <Searchbar handleSearch={props.handleSearch} /> */}
-      </button>
+      <div>
+        <button className="homeRefreshBtn" onClick={RefreshPage}><Link to={PATHS.HOMEPAGE} className="nav__projectName"><img className="logo" src={logo} alt="logo" />
+          {/* {CONSTS.CAPITALIZED_APP} - created with IronLauncher */}
+        </Link>
+        {/* <Searchbar handleSearch={props.handleSearch} /> */}
+        </button>
+        <h2 className="logoText">swapp</h2>
+      </div>
 
       <div className="nav__authLinks">
         {/* {console.log(props.user)} */}

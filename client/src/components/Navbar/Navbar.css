@@ -8,6 +8,13 @@ nav {
   
 }
 
+.logoText {
+  font-family: 'Comfortaa';
+  color: #6667ab;
+  font-weight: 700;
+  margin: -5px;
+}
+
 .nav__projectName {
   color: #e4f9ff;
   text-decoration: none;
