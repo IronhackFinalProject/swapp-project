@@ -32,10 +32,9 @@
 
 @media (max-width:425px){
     .homeicon, .hearticon, .plusicon, .messageicon, .smileicon{
-       
         margin-right: 20px;
-        
     }
+
 }
 
 @media (min-width: 769px){

@@ -14,7 +14,7 @@ import { ChatEngine } from 'react-chat-engine';
 function Chat() {
 	return (
 		<ChatEngine
-			height= "87vh"
+			height= "84vh"
 			projectID='8c253c6f-864b-4700-a8b0-f3789313f737'
 			userName='FerAdmin'
 			userSecret='987654321'
