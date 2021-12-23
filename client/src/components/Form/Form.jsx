@@ -15,8 +15,8 @@ import 'react-toastify/dist/ReactToastify.css';         // Pruebas Toastify
 const Form = (props)=>{
     const [inputProduct, setInputProduct] = useState("");
     const [inputDesciption, setinputDesciption] = useState("");
-    const [inputCategory, setInputCategory] = useState("TV, Audio y Foto");
-    const [inputInterests, setInputInterests] = useState("TV, Audio y Foto");
+    const [inputCategory, setInputCategory] = useState("Tv, Audio & Photo");
+    const [inputInterests, setInputInterests] = useState("Tv, Audio & Photo");
     // const [inputImage, setInputImage] = useState("")
     const [imageSelected, setImageSelected] = useState("")
     const [inputCondition, setInputCondition] = useState("New");

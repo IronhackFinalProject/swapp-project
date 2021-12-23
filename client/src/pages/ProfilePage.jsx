@@ -1,7 +1,7 @@
 // import Product from "../../../server/models/Product.model";
 import "../App.css";
 //import Uploadimage from "../components/Uploadimage/Uploadimage";
-import avatar from "../components/SearchShortcuts/icons/avatar-369-456321.png"
+import avatar from "../images/robot.png"
 import { PoweroffOutlined, EditOutlined } from "@ant-design/icons"; 
 import Actionbar from "./../components/Actionbar/Actionbar"
 import "./ProfilePage.css"
@@ -53,39 +53,39 @@ function ProfilePage(props) {
 
       <div className="backCard">
         <h2>
-          Welcome to your profile page, {name} {lastname}.
+          Welcome to your profile page, <span className="cardData">{name} {lastname}</span>.
         </h2>
 
         <div className="usernameText">
           <h4>
-            Username:{" "}
-            <span className="propsUsername">{username}</span>
+            Username: 
+            <span className="cardData"> {username}</span>
           </h4>
         </div>
 
         <div className="locationText">
           <h3>
-            Location: <span className="propsCity">{city}</span>
+            Location: <span className="cardData">{city}</span>
           </h3>
 
           <div>
-            <h4>Uploaded items: {userProducts?.length}</h4>
+            <h4>Uploaded items: <span className="cardData">{userProducts?.length}</span></h4>
           </div>
 
           <div>
-            <h4>Favorite items to Swapp: {favoritos?.length} </h4> 
+            <h4>Favorite items to Swapp: <span className="cardData">{favoritos?.length}</span> </h4> 
           </div>
 
           <div>
             <p className="itemsOnSwapp">
-              Current items available on Swapp: {props.products.length}
+              Current available items on the whole Swapp: <span className="cardData">{props.products.length}</span>
             </p>
           </div>
 
           <div className="signedUp">
             <p className="signedUpText">
-              You are signed up since {createdAt.slice(0, 10)} at{" "}
-              {createdAt.slice(11, 16)}
+              ~ You are signed up since {createdAt.slice(0, 10)} at 
+               {createdAt.slice(11, 16)} ~
             </p>
           </div>
         </div>

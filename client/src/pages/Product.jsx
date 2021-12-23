@@ -10,7 +10,7 @@ import unFavIcon from "../components/SearchShortcuts/icons/fav.png"
 import { favProduct } from "../services/products";
 import favIcon from "../components/SearchShortcuts/icons/no_fav.png"
 import * as PATHS from "../utils/paths";
-import { DeleteOutlined, TrophyOutlined, VideoCameraOutlined, UserOutlined, AlertOutlined } from "@ant-design/icons";
+import { DeleteOutlined, TrophyOutlined, VideoCameraOutlined, UserOutlined, AlertOutlined, HeartOutlined, HeartTwoTone } from "@ant-design/icons";
 
 
 // import { ProductDetailsCard } from "../components/ProductDetails/ProductDetails"
@@ -47,13 +47,13 @@ const handleUnfav = () => {
 
 
 const getInterests = () => {
-  if (product.interests === "TV, Audio y Foto") {
+  if (product.interests === "Tv, Audio & Photo") {
     return <><VideoCameraOutlined/></>;
-  } else if (product.interests === "Deporte y Ocio") {
+  } else if (product.interests === "Sports") {
     return "🤸‍♂️";
-  } else if (product.interests === "Moda y accesorios") {
+  } else if (product.interests === "Fashion") {
     return "👕";
-  } else if (product.interests === "Móviles y Telefonía") {
+  } else if (product.interests === "Smartphones") {
     return "📱";
   } else {
     return "";
@@ -77,7 +77,7 @@ const getInterests = () => {
           
           <div className="card-body">
           <div className="titleDetailChatBtnWrapper">
-            <h2 className="titleDetailsProduct">{product.name}</h2>
+            <h1 className="titleDetailsProduct">{product.name}</h1>
             <>
             <Link to={PATHS.CHATPROFILE} className="nav__projectName">
               <button className="btnChat">
@@ -87,48 +87,36 @@ const getInterests = () => {
             </>
             </div>
 
-            <p className="cityDetailsProduct">{product.publishedBy.city}</p>
-            <h3>
-              {/* {props.user._id === product.publishedBy ? (
-                  !props.user?.favoritos.includes(product._id) ? (
-                    <button
-                      className="favBtn"
-                      onClick={() => handleFav(product._id)}
-                    >
-                      <img src={favIcon} alt="favIcon" className="favIcon" />
-                    </button>
-                  ) : (
-                    <button
-                      className="favBtn"
-                      onClick={() => handleUnfav(product._id)}
-                    >
-                      <img src={unFavIcon} alt="favIcon" className="favIcon" />
-                    </button>
-                  ))
-                 : ""} */}
-            </h3>
-            <div>
-              <p>
+            <h1 className="cityDetailsProduct">{product.publishedBy.city}</h1>
+            {/* <h3>
+              {props.user._id !== product.publishedBy ? (
+                !props.user?.favoritos.includes(props.user._id) ? (
+                <button className="favBtn" onClick={() => handleFav(props.user._id)}>
+                  <HeartOutlined className="favIcon" />
+                </button>
+              ) : (
+                <button className="favBtn" onClick={() => handleUnfav(props.user._id)}>
+                  <HeartTwoTone twoToneColor="#eb2f96" className="unfavIcon" />
+                </button>
+              )
+            ) : 
+              ""}
+            </h3> */}
+            <div className="cardDataContainer">
+              {/* <p>
                 <strong>About:</strong>
-              </p>
-              <p>{product.description}</p>
-            </div>
-            <p>
-              <strong>Product condition:</strong> {product.condition}
-            </p>
-            <p>
-              <strong>Product's category:</strong> {product.category}
-            </p>
-            <p>
-              {product.publishedBy.username} is interested in swapping this
-              product for an item of the category {product.interests} {getInterests()}
-            </p>
-            <div class="user">
-              <p>
-                This user has a total of{" "}
-                <strong>{product.publishedBy.products.length} products</strong>{" "}
-                to swapp.
-              </p>
+              </p> */}
+                <h3>{product.description}</h3>
+                <h3><span className="cardData">Product condition:</span> {product.condition}</h3>
+                <h3><span className="cardData">Product's category:</span> {product.category}</h3>
+                <h3><span className="cardData">{product.publishedBy.username}</span> is interested in swapping this
+                  product for an item of the <span className="cardData">{product.interests}</span> {getInterests()} category.
+                </h3>
+                <div class="user">
+                  <h3 className="userTotalProducts">
+                    This user has a total of <span className="cardData">{product.publishedBy.products.length} products</span> to swapp.
+                  </h3>
+                </div>
             </div>
 
             

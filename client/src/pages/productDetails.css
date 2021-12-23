@@ -1,15 +1,18 @@
 .productDetails-container{
+  font-family: 'Comfortaa';
+  font-weight: 700;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: left;
+  text-align: left;
 }
 
 .titleDetailsProduct{
-  font-size: 36px;
+  font-size: 50px;
 }
 
 .cityDetailsProduct{
-  font-size: 36px;
+  font-size: 30px;
   font-weight: 700;
   color: #6667ab;
 }
@@ -20,30 +23,48 @@
   justify-content: space-between;
 }
 
+.cardData {
+  color:#6667ab;
+}
+
+.favIconCard {
+  height: 50px;
+}
+.cardDataContainer {
+  line-height: 20px;
+  margin: -20px 25px 25px 25px;
+}
+
+.userTotalProducts {
+  font-size: 20px;
+}
+
 .card {
-    margin-top: 10px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
-    width: 600px;
-    clip-path: polygon(
-        0% 5%,
-        10% 0,
-        100% 0,
-        100% 0%,
-        100% 0%,
-        100% 100%,
-        0% 100%,
-        0% 100%,
-        0% 0%
-      );
-    line-height : 5px;
-  }
+  margin-top: 10px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  width: 600px;
+  clip-path: polygon(
+      0% 5%,
+      10% 0,
+      100% 0,
+      100% 0%,
+      100% 0%,
+      100% 100%,
+      0% 100%,
+      0% 100%,
+      0% 0%
+    );
+  line-height : 5px;
+}
+
 .card-header img {
 width: 100%;
 height: 100%;
 object-fit: cover;
+cursor:auto
 }
 
 .card-body {
@@ -55,21 +76,12 @@ padding: 10px;
 min-height: 250px;
 }
 
-/* .tag {
-background: #cccccc;
-border-radius: 50px;
-font-size: 12px;
-margin: 0;
-color: #fff;
-padding: 2px 10px;
-text-transform: uppercase;
-cursor: pointer;
-} */
 
 .card-body p {
 font-size: 13px;
 margin: 0 0 40px;
 }
+
 .user {
 display: flex;
 margin-top: auto;
@@ -117,11 +129,10 @@ color: #545d7a;
 .ShareBtnsWrapper{
   margin-top: -10px;
   display: flex;
-
 }
 
 .TwitterShare, .FacebookShare, .WhatsappShare{
   margin-top: -15px;
   margin-right: 10px;
-  margin-bottom: 0px;
+  margin-bottom: 70px;
 }
