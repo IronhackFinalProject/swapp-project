@@ -1,12 +1,15 @@
 .Searchbar{
   border-radius: 20px;
   background-color: white;
-  position: absolute;
+  position: relative;
+  display: flex;
   margin-top: -300px;
   margin-left: 120px;
   justify-content: center;
   width: 20%;
-  min-width: 500px;
+  min-width: 300px;
+  max-width: 650px;
+  margin-bottom: 100px;
 }
 
 .searchInput{
@@ -31,7 +34,7 @@
 
 @media (max-width:576px) {
   .Searchbar{
-    margin-top: -410px;
+    margin-top: -250px;
     
     
   }
