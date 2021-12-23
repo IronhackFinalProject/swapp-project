@@ -4,6 +4,7 @@ import { MYPRODUCTS } from "../utils/paths";
 import SearchShortcuts from "../components/SearchShortcuts/SearchShortcuts"
 import {useState, useEffect} from 'react'
 import {getMyProductsDB} from '../services/products'
+import './MyProducts.css'
 
 
 
@@ -30,15 +31,18 @@ const MyProducts = (props) => {
   }, [])
   
 
+  
+
   return (
     
     <div>
-      <h1>These are your products...</h1>
-      <h2>You can even sort them by category</h2>
+      {/* <h2>You can even sort them by category</h2> */}
 
-      <div className="searchShortcuts">
+      {/* <div className="searchShortcuts">
           <SearchShortcuts handleSearch={props.requestProducts} /> 
-      </div>
+      </div> */}
+      <h1 className="PagesTitle">Your products to swapp</h1>
+
 
       {myProducts.map((product, index) => {
         return <MyProductCard refreshProducts={getMyProducts} key={index + product._id} user={props.user} product={product} />

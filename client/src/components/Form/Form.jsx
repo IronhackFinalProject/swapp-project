@@ -79,8 +79,8 @@ const Form = (props)=>{
     }
 
     return(
-        <div>
-            <h1>Upload your items</h1>
+        <div className="formContainer">
+            <h1 className="PagesTitle">Upload your items</h1>
 
             <div className="formProduct">
             <div className="yourItem">
@@ -94,7 +94,7 @@ const Form = (props)=>{
 
 <div className="descriptionItem">
             <p>Description</p>
-            <textarea className="formsInput" type="text" name="description" onFocus={handleFocus} style={{"height" : "100px", "width" : "200px"}} placeholder="Be concise, you just have 100 characters" maxLength={100} onChange={(event) => setinputDesciption(event.target.value)}></textarea>
+            <textarea className="formsInput" type="text" name="description" onFocus={handleFocus} style={{"height" : "60px", "width" : "200px"}} placeholder="Be concise, you just have 100 characters" maxLength={100} onChange={(event) => setinputDesciption(event.target.value)}></textarea>
             {err.description && <span>{err.description.message}</span>}
 </div>
 
